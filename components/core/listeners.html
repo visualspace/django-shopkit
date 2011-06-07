@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Listeners &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Price" href="../price/index.html" />
+    <link rel="prev" title="Signals" href="signals.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../price/index.html" title="Price"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="signals.html" title="Signals"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="listeners">
+<h1>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.listeners</cite></p>
+<span class="target" id="module-shopkit.core.listeners"></span><dl class="class">
+<dt id="shopkit.core.listeners.StateChangeListener">
+<em class="property">class </em><tt class="descclassname">shopkit.core.listeners.</tt><tt class="descname">StateChangeListener</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.StateChangeListener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.utils.listeners.Listener</span></tt></p>
+<p>Listener base class for order status changes.</p>
+<p>Example:</p>
+<div class="highlight-python"><pre>OrderPaidListener(StatusChangeListener):
+    state = order_states.ORDER_STATE_PAID
+
+    def handler(self, sender, **kwargs):
+        # &lt;do something&gt;</pre>
+</div>
+<dl class="method">
+<dt id="shopkit.core.listeners.StateChangeListener.dispatch">
+<tt class="descname">dispatch</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.StateChangeListener.dispatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dispatch method is equivlant to the similarly named method in
+Django&#8217;s class based views: it checks whether or not this signal
+should be handled at all (whether or not it matches the specified)
+state change) and then calls the <cite>handle()</cite> method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.StateChangeListener.handler">
+<tt class="descname">handler</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.StateChangeListener.handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>The handler performs some actual action upon handling a signal. This
+must be overridden in subclasses defining <em>actual</em> listeners.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.listeners.StateChangeLogger">
+<em class="property">class </em><tt class="descclassname">shopkit.core.listeners.</tt><tt class="descname">StateChangeLogger</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.StateChangeLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.core.listeners.StateChangeListener" title="shopkit.core.listeners.StateChangeListener"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.listeners.StateChangeListener</span></tt></a></p>
+<p>Debugging listener for <cite>order_state_change</cite>,
+logging each and every state change.</p>
+<dl class="method">
+<dt id="shopkit.core.listeners.StateChangeLogger.handler">
+<tt class="descname">handler</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.StateChangeLogger.handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the signal by writing out a debug log message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.listeners.EmailingListener">
+<em class="property">class </em><tt class="descclassname">shopkit.core.listeners.</tt><tt class="descname">EmailingListener</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.utils.listeners.Listener</span></tt></p>
+<p>Listener which sends out emails.</p>
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_subject_template_names">
+<tt class="descname">get_subject_template_names</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_subject_template_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of template names to be used for the request. Must
+return a list. May not be called if render_to_response is overridden.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_body_template_names">
+<tt class="descname">get_body_template_names</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_body_template_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of template names to be used for the request. Must
+return a list. May not be called if render_to_response is overridden.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_body_html_template_names">
+<tt class="descname">get_body_html_template_names</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_body_html_template_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of HTML template names to be used for the request. Must
+return a list. May not be called if render_to_response is overridden.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_context_data">
+<tt class="descname">get_context_data</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context for the message template rendered. Defaults to sender, the
+current site object and kwargs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_recipients">
+<tt class="descname">get_recipients</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_recipients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recipients for the message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.get_sender">
+<tt class="descname">get_sender</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.get_sender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sender of the message, defaults to <cite>None</cite> which imples
+<cite>DEFAULT_FROM_EMAIL</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.create_message">
+<tt class="descname">create_message</tt><big>(</big><em>context</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.create_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an email message.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.EmailingListener.handler">
+<tt class="descname">handler</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.EmailingListener.handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store sender and kwargs attributes on self.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.listeners.TranslatedEmailingListener">
+<em class="property">class </em><tt class="descclassname">shopkit.core.listeners.</tt><tt class="descname">TranslatedEmailingListener</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.TranslatedEmailingListener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.core.listeners.EmailingListener" title="shopkit.core.listeners.EmailingListener"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.listeners.EmailingListener</span></tt></a></p>
+<p>Email sending listener which switched locale before processing.</p>
+<dl class="method">
+<dt id="shopkit.core.listeners.TranslatedEmailingListener.get_language">
+<tt class="descname">get_language</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.TranslatedEmailingListener.get_language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the language we should switch to.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.listeners.TranslatedEmailingListener.handler">
+<tt class="descname">handler</tt><big>(</big><em>sender</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.listeners.TranslatedEmailingListener.handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle the signal, wrapping the emailing handler from the base
+class but changing locale on beforehand, switching back to the
+original afterwards.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="signals.html"
+                        title="previous chapter">Signals</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../price/index.html"
+                        title="next chapter">Price</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/core/listeners.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../price/index.html" title="Price"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="signals.html" title="Signals"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

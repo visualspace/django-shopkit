@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Variations" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Admin" href="admin.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="admin.html" title="Admin"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Variations</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.variations.models</cite></p>
+<span class="target" id="module-shopkit.variations.models"></span><dl class="class">
+<dt id="shopkit.variations.models.ProductVariationBase">
+<em class="property">class </em><tt class="descclassname">shopkit.variations.models.</tt><tt class="descname">ProductVariationBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.variations.models.ProductVariationBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for variations of a product.</p>
+<dl class="classmethod">
+<dt id="shopkit.variations.models.ProductVariationBase.get_default_variation">
+<em class="property">classmethod </em><tt class="descname">get_default_variation</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.variations.models.ProductVariationBase.get_default_variation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the default variation selected for this product.
+As there is no inherent way to order these, this function
+should be overridden in classes actually implementing the
+variation model.</p>
+<p>This might, for example, be overriden by taking the first product
+in the list or by some function selecting a specific variation as
+default.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.variations.models.ProductVariationBase.product">
+<tt class="descname">product</tt><a class="headerlink" href="#shopkit.variations.models.ProductVariationBase.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product this variation is linked to.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.variations.models.OrderedProductVariationBase">
+<em class="property">class </em><tt class="descclassname">shopkit.variations.models.</tt><tt class="descname">OrderedProductVariationBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.variations.models.OrderedProductVariationBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.variations.models.ProductVariationBase" title="shopkit.variations.models.ProductVariationBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.variations.models.ProductVariationBase</span></tt></a>, <a class="reference internal" href="../core/basemodels.html#shopkit.core.basemodels.OrderedInlineItemBase" title="shopkit.core.basemodels.OrderedInlineItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.OrderedInlineItemBase</span></tt></a></p>
+<p>Base class for ordered product variations.</p>
+<dl class="classmethod">
+<dt id="shopkit.variations.models.OrderedProductVariationBase.get_default_variation">
+<em class="property">classmethod </em><tt class="descname">get_default_variation</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.variations.models.OrderedProductVariationBase.get_default_variation" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default, this returns the first variation according to the
+default sortorder.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.variations.models.OrderedProductVariationBase.get_related_ordering">
+<tt class="descname">get_related_ordering</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.variations.models.OrderedProductVariationBase.get_related_ordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Related objects for generating default ordering.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.variations.models.VariationItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.variations.models.</tt><tt class="descname">VariationItemBase</tt><a class="headerlink" href="#shopkit.variations.models.VariationItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Abstract base class for (order/cart) items with variations.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.variations.models.VariationCartItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.variations.models.</tt><tt class="descname">VariationCartItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.variations.models.VariationCartItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt>, <a class="reference internal" href="#shopkit.variations.models.VariationItemBase" title="shopkit.variations.models.VariationItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.variations.models.VariationItemBase</span></tt></a></p>
+<p>Mixin class for cart items which can have variations.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.variations.models.VariationOrderItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.variations.models.</tt><tt class="descname">VariationOrderItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.variations.models.VariationOrderItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt>, <a class="reference internal" href="#shopkit.variations.models.VariationItemBase" title="shopkit.variations.models.VariationItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.variations.models.VariationItemBase</span></tt></a></p>
+<p>Mixin class for order items which can have variations.</p>
+<dl class="classmethod">
+<dt id="shopkit.variations.models.VariationOrderItemMixin.from_cartitem">
+<em class="property">classmethod </em><tt class="descname">from_cartitem</tt><big>(</big><em>cartitem</em>, <em>order</em><big>)</big><a class="headerlink" href="#shopkit.variations.models.VariationOrderItemMixin.from_cartitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create <cite>OrderItem</cite> from <cite>CartItem</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="admin.html"
+                        title="previous chapter">Admin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/variations/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="admin.html" title="Admin"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Variations</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

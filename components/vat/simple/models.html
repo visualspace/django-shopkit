@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Simple" href="index.html" />
+    <link rel="next" title="Views" href="views.html" />
+    <link rel="prev" title="Simple" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="Views"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Simple"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Value Added Tax</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Simple</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-shopkit.vat.simple.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-shopkit.vat.simple.models" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="shopkit.vat.simple.models.VATItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.vat.simple.models.</tt><tt class="descname">VATItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.vat.simple.models.VATItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../core/basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a></p>
+<p>This item extends any priced item (subclasses of <tt class="xref py py-class docutils literal"><span class="pre">AbstractPricedItemBase</span></tt>) 
+with functions that yield the prices with and without VAT. In doing this,
+it might be imported in what order the base classes for the VAT&#8217;ed item are
+listed. Feedback about this is welcomed.</p>
+<dl class="docutils">
+<dt>..todo:: </dt>
+<dd>Write unittests for this piece of code.</dd>
+</dl>
+<dl class="method">
+<dt id="shopkit.vat.simple.models.VATItemBase.get_vat">
+<tt class="descname">get_vat</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.vat.simple.models.VATItemBase.get_vat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the amount of VAT for the current item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.vat.simple.models.VATItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>with_vat=True</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.vat.simple.models.VATItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>If <cite>with_vat=False</cite>, simply returns the original price. Otherwise
+it takes the result of <cite>get_vat()</cite> and adds it to the original price.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.vat.simple.models.VATItemBase.get_price_with_vat">
+<tt class="descname">get_price_with_vat</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.vat.simple.models.VATItemBase.get_price_with_vat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the price including VAT. This is a wrapper function around
+get_price as to allow for specific prices to be queried from within
+templates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.vat.simple.models.VATItemBase.get_price_without_vat">
+<tt class="descname">get_price_without_vat</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.vat.simple.models.VATItemBase.get_price_without_vat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the price excluding VAT. This is a wrapper function around
+get_price as to allow for specific prices to be queried from within
+templates.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Simple</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="views.html"
+                        title="next chapter">Views</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/vat/simple/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="views.html" title="Views"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Simple"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Value Added Tax</a> &raquo;</li>
+          <li><a href="index.html" >Simple</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Simple" href="index.html" />
+    <link rel="next" title="Advanced" href="../advanced/index.html" />
+    <link rel="prev" title="Settings" href="settings.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../advanced/index.html" title="Advanced"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Stock</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Simple</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-shopkit.stock.simple.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-shopkit.stock.simple.models" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="shopkit.stock.simple.models.StockedCartItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.stock.simple.models.</tt><tt class="descname">StockedCartItemMixin</tt><a class="headerlink" href="#shopkit.stock.simple.models.StockedCartItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../models.html#shopkit.stock.models.StockedItemBase" title="shopkit.stock.models.StockedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedItemBase</span></tt></a>, <a class="reference internal" href="../models.html#shopkit.stock.models.StockedCartItemBase" title="shopkit.stock.models.StockedCartItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedCartItemBase</span></tt></a></p>
+<p>Mixin class for <cite>CartItem</cite>&#8216;s containing items for which stock is kept.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.stock.simple.models.StockedCartMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.stock.simple.models.</tt><tt class="descname">StockedCartMixin</tt><a class="headerlink" href="#shopkit.stock.simple.models.StockedCartMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../models.html#shopkit.stock.models.StockedCartBase" title="shopkit.stock.models.StockedCartBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedCartBase</span></tt></a></p>
+<p>Mixin class for <cite>Cart</cite>&#8216;s containing items for which stock is kept.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.stock.simple.models.StockedOrderItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.stock.simple.models.</tt><tt class="descname">StockedOrderItemMixin</tt><a class="headerlink" href="#shopkit.stock.simple.models.StockedOrderItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../models.html#shopkit.stock.models.StockedItemBase" title="shopkit.stock.models.StockedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedItemBase</span></tt></a>, <a class="reference internal" href="../models.html#shopkit.stock.models.StockedOrderItemBase" title="shopkit.stock.models.StockedOrderItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedOrderItemBase</span></tt></a></p>
+<p>Mixin class for <cite>OrderItem</cite>&#8216;s containing items for which stock is kept.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.stock.simple.models.StockedOrderMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.stock.simple.models.</tt><tt class="descname">StockedOrderMixin</tt><a class="headerlink" href="#shopkit.stock.simple.models.StockedOrderMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../models.html#shopkit.stock.models.StockedOrderBase" title="shopkit.stock.models.StockedOrderBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedOrderBase</span></tt></a></p>
+<p>Mixin class for <cite>Order</cite>&#8216;s containing items for which stock is kept.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.stock.simple.models.StockedItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.stock.simple.models.</tt><tt class="descname">StockedItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.stock.simple.models.StockedItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt>, <a class="reference internal" href="../models.html#shopkit.stock.models.StockedItemBase" title="shopkit.stock.models.StockedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.stock.models.StockedItemBase</span></tt></a></p>
+<p>Item with a simple stock selection mechanism: the possible options for
+the available <cite>stock</cite> field signify certain stock states, some of which
+correspond to an item being orderable.</p>
+<p>This could be associated with a <cite>Product</cite>, a <cite>Variation</cite> or some other
+property that pertains to the specific state of 
+<a class="reference internal" href="../../core/models.html#shopkit.core.models.CartItemBase" title="shopkit.core.models.CartItemBase"><tt class="xref py py-class docutils literal"><span class="pre">CartItemBase</span></tt></a> subclasses.</p>
+<dl class="attribute">
+<dt id="shopkit.stock.simple.models.StockedItemMixin.stock">
+<tt class="descname">stock</tt><a class="headerlink" href="#shopkit.stock.simple.models.StockedItemMixin.stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>SmallIntegerField allowing for choices from <cite>STOCK_CHOICES</cite>, with a
+default value of <cite>STOCK_DEFAULT</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.stock.simple.models.StockedItemMixin.is_available">
+<tt class="descname">is_available</tt><big>(</big><em>quantity=None</em><big>)</big><a class="headerlink" href="#shopkit.stock.simple.models.StockedItemMixin.is_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to determine whether or not the current item is in an
+orderable state.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="previous chapter">Settings</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../advanced/index.html"
+                        title="next chapter">Advanced</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/stock/simple/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../advanced/index.html" title="Advanced"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Stock</a> &raquo;</li>
+          <li><a href="index.html" >Simple</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Admin &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Utils" href="index.html" />
+    <link rel="next" title="Context processors" href="../context_processors.html" />
+    <link rel="prev" title="Fields" href="fields.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../context_processors.html" title="Context processors"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fields.html" title="Fields"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Core</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Utils</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="admin">
+<h1>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.utils.admin</cite></p>
+<span class="target" id="module-shopkit.core.utils.admin"></span><dl class="data">
+<dt id="shopkit.core.utils.admin.logger">
+<tt class="descclassname">shopkit.core.utils.admin.</tt><tt class="descname">logger</tt><a class="headerlink" href="#shopkit.core.utils.admin.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic Admin utilities</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.utils.admin.LimitedAdminInlineMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.core.utils.admin.</tt><tt class="descname">LimitedAdminInlineMixin</tt><a class="headerlink" href="#shopkit.core.utils.admin.LimitedAdminInlineMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>InlineAdmin mixin limiting the selection of related items according to
+criteria which can depend on the current parent object being edited.</p>
+<p>A typical use case would be selecting a subset of related items from
+other inlines, ie. images, to have some relation to other inlines.</p>
+<p>Use as follows:</p>
+<div class="highlight-python"><pre>class MyInline(LimitedAdminInlineMixin, admin.TabularInline):
+    def get_filters(self, obj):
+        return (('&lt;field_name&gt;', dict(&lt;filters&gt;)),)</pre>
+</div>
+<dl class="staticmethod">
+<dt id="shopkit.core.utils.admin.LimitedAdminInlineMixin.limit_inline_choices">
+<em class="property">static </em><tt class="descname">limit_inline_choices</tt><big>(</big><em>formset</em>, <em>field</em>, <em>empty=False</em>, <em>**filters</em><big>)</big><a class="headerlink" href="#shopkit.core.utils.admin.LimitedAdminInlineMixin.limit_inline_choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function fetches the queryset with available choices for a given
+<cite>field</cite> and filters it based on the criteria specified in filters,
+unless <cite>empty=True</cite>. In this case, no choices will be made available.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.utils.admin.LimitedAdminInlineMixin.get_formset">
+<tt class="descname">get_formset</tt><big>(</big><em>request</em>, <em>obj=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.utils.admin.LimitedAdminInlineMixin.get_formset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we can only select variations that relate to the current
+item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.utils.admin.LimitedAdminInlineMixin.get_filters">
+<tt class="descname">get_filters</tt><big>(</big><em>obj</em><big>)</big><a class="headerlink" href="#shopkit.core.utils.admin.LimitedAdminInlineMixin.get_filters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return filters for the specified fields. Filters should be in the
+following format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">((</span><span class="s">&#39;field_name&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;categories&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="p">}),</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For this to work, we should either override <cite>get_filters</cite> in a
+subclass or define a <cite>filters</cite> property with the same syntax as this
+one.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fields.html"
+                        title="previous chapter">Fields</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../context_processors.html"
+                        title="next chapter">Context processors</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/core/utils/admin.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../context_processors.html" title="Context processors"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fields.html" title="Fields"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Core</a> &raquo;</li>
+          <li><a href="index.html" >Utils</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

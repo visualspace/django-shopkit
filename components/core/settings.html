@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Settings &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Utils" href="utils/index.html" />
+    <link rel="prev" title="Forms" href="forms.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="utils/index.html" title="Utils"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="forms.html" title="Forms"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.settings</cite></p>
+<p>To set the values below from <cite>settings.py</cite>, prepend their names with
+<cite>SHOPKIT_</cite>. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">SHOPKIT_PRODUCT_MODEL</span> <span class="o">=</span> <span class="s">&#39;myapp.MyProduct&#39;</span>
+</pre></div>
+</div>
+<span class="target" id="module-shopkit.core.settings"></span><dl class="data">
+<dt id="shopkit.core.settings.CUSTOMER_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">CUSTOMER_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.CUSTOMER_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the customer model used in the shop.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.PRODUCT_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">PRODUCT_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.PRODUCT_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to the model class defining the product.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.CART_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">CART_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.CART_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model used for shopping carts.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.CARTITEM_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">CARTITEM_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.CARTITEM_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model used for shopping cart items.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.ORDER_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">ORDER_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.ORDER_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model used for orders.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.ORDER_STATES">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">ORDER_STATES</tt><a class="headerlink" href="#shopkit.core.settings.ORDER_STATES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping for order states of the following form:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">SHOPKIT_ORDER_STATES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mo">00</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Temp&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;New&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Blocked&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;In Process&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Billed&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Shipped&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Complete&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">_</span><span class="p">(</span><span class="s">&#39;Cancelled&#39;</span><span class="p">)),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.DEFAULT_ORDER_STATE">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">DEFAULT_ORDER_STATE</tt><a class="headerlink" href="#shopkit.core.settings.DEFAULT_ORDER_STATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default state for new orders. By default, the first state in
+<cite>SHOPKIT_ORDER_STATES</cite> is selected.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.ORDERSTATE_CHANGE_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">ORDERSTATE_CHANGE_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.ORDERSTATE_CHANGE_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model used for logging state changes of orders.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.ORDERITEM_MODEL">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">ORDERITEM_MODEL</tt><a class="headerlink" href="#shopkit.core.settings.ORDERITEM_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>The model used for order items.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="shopkit.core.settings.MAX_NAME_LENGTH">
+<tt class="descclassname">shopkit.core.settings.</tt><tt class="descname">MAX_NAME_LENGTH</tt><a class="headerlink" href="#shopkit.core.settings.MAX_NAME_LENGTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Optional) The maximum name length for named products in the webshop.
+This defaults to 255.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="forms.html"
+                        title="previous chapter">Forms</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="utils/index.html"
+                        title="next chapter">Utils</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/core/settings.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="utils/index.html" title="Utils"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="forms.html" title="Forms"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

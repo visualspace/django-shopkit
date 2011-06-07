@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Base models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Category" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Category" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Category"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Category</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-shopkit.category.basemodels">
+<span id="base-models"></span><h1>Base models<a class="headerlink" href="#module-shopkit.category.basemodels" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="shopkit.category.basemodels.CategoryBase">
+<em class="property">class </em><tt class="descclassname">shopkit.category.basemodels.</tt><tt class="descname">CategoryBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.CategoryBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for a category.</p>
+<dl class="attribute">
+<dt id="shopkit.category.basemodels.CategoryBase.in_shop">
+<tt class="descname">in_shop</tt><a class="headerlink" href="#shopkit.category.basemodels.CategoryBase.in_shop" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>in_shop</cite> property should be a <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/db/managers/#django.db.models.Manager" title="(in Django v1.3)"><tt class="xref py py-class docutils literal"><span class="pre">Manager</span></tt></a>
+containing all the items which should be enabled in the
+shop&#8217;s frontend.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.category.basemodels.CategoryBase.get_categories">
+<em class="property">classmethod </em><tt class="descname">get_categories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.CategoryBase.get_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets all the available categories.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.category.basemodels.CategoryBase.get_main_categories">
+<em class="property">classmethod </em><tt class="descname">get_main_categories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.CategoryBase.get_main_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the main categories, which for unnested categories
+implies all of them. This method exists purely for uniformity
+reasons.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.CategoryBase.get_products">
+<tt class="descname">get_products</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.CategoryBase.get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all active products for the current category.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.category.basemodels.NestedCategoryBase">
+<em class="property">class </em><tt class="descclassname">shopkit.category.basemodels.</tt><tt class="descname">NestedCategoryBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.category.basemodels.CategoryBase" title="shopkit.category.basemodels.CategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.category.basemodels.CategoryBase</span></tt></a></p>
+<p>Abstract base class for a nested category.</p>
+<dl class="attribute">
+<dt id="shopkit.category.basemodels.NestedCategoryBase.parent">
+<tt class="descname">parent</tt><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parent of this category</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.category.basemodels.NestedCategoryBase.get_main_categories">
+<em class="property">classmethod </em><tt class="descname">get_main_categories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase.get_main_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the main categories; the ones which have no parent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.NestedCategoryBase.get_subcategories">
+<tt class="descname">get_subcategories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase.get_subcategories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the subcategories for the current category.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.NestedCategoryBase.get_products">
+<tt class="descname">get_products</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase.get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all active products for the current category.</p>
+<p>For performance reasons, and added control, this only
+returns only products explicitly associated to this
+category - as opposed to listing also products in subcategories
+of the current category.</p>
+<p>This would take a lot more requests and is probably not
+what we should wish for.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.NestedCategoryBase.get_parent_list">
+<tt class="descname">get_parent_list</tt><big>(</big><em>reversed=False</em><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.NestedCategoryBase.get_parent_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of all parent categories of the current category.</p>
+<p>By default it lists the categories from parent to child, ie.:</p>
+<div class="highlight-python"><pre>[&lt;categoryt&gt;, &lt;subcategory&gt;, &lt;subsubcategory&gt;, ...]</pre>
+</div>
+<p>If the argument <cite>reversed</cite> evaluates to <cite>True</cite>, the list runs
+in reverse order. This <em>saves</em> an extra reverse operation.</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Cache this. It is a slow operation which requires
+as many queries as the category tree is deep.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.category.basemodels.MPTTCategoryBase">
+<em class="property">class </em><tt class="descclassname">shopkit.category.basemodels.</tt><tt class="descname">MPTTCategoryBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.MPTTCategoryBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="http://django-mptt.github.com/django-mptt/mptt.models.html#mptt.models.MPTTModel" title="(in django-mptt v0.5.pre)"><tt class="xref py py-class docutils literal"><span class="pre">mptt.models.MPTTModel</span></tt></a>, <a class="reference internal" href="#shopkit.category.basemodels.NestedCategoryBase" title="shopkit.category.basemodels.NestedCategoryBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.category.basemodels.NestedCategoryBase</span></tt></a></p>
+<dl class="classmethod">
+<dt id="shopkit.category.basemodels.MPTTCategoryBase.get_main_categories">
+<em class="property">classmethod </em><tt class="descname">get_main_categories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.MPTTCategoryBase.get_main_categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the main categories; the ones which have no parent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.MPTTCategoryBase.get_subcategories">
+<tt class="descname">get_subcategories</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.MPTTCategoryBase.get_subcategories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the subcategories for the current category.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.category.basemodels.MPTTCategoryBase.get_products">
+<tt class="descname">get_products</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.category.basemodels.MPTTCategoryBase.get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all active products for the current category.</p>
+<p>As opposed to the original function in the base class, this also
+includes products in subcategories of the current category object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Category</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/category/basemodels.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Category"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Category</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

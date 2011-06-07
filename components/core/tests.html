@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tests &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Context processors" href="context_processors.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="Exceptions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="context_processors.html" title="Context processors"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tests">
+<h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.tests</cite></p>
+<span class="target" id="module-shopkit.core.tests"></span><dl class="class">
+<dt id="shopkit.core.tests.CoreTestMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.core.tests.</tt><tt class="descname">CoreTestMixin</tt><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for testing core webshop functionality. This class should
+not directly be used, rather it should be subclassed similar to the
+way that included model base classes should be subclassed.</p>
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.setUp">
+<tt class="descname">setUp</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function gets the model classes from <cite>settings.py</cite> and
+makes them available as <cite>self.cusomter_class</cite>, <cite>self.product_class</cite> 
+etcetera.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.make_test_product">
+<tt class="descname">make_test_product</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.make_test_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract function for creating a test product. As the actual
+properties of Products depend on the classes actually implementing
+it, this function must be overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_basic_product">
+<tt class="descname">test_basic_product</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_basic_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if we can create and save a simple product.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_cartitem_from_product">
+<tt class="descname">test_cartitem_from_product</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_cartitem_from_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <cite>CartItem</cite> from a <cite>Product</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_orderitem_from_cartitem">
+<tt class="descname">test_orderitem_from_cartitem</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_orderitem_from_cartitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an <cite>OrderItem</cite> from a <cite>CartItem</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_create_usercustomer">
+<tt class="descname">test_create_usercustomer</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_create_usercustomer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a <cite>UserCustomer</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_cart">
+<tt class="descname">test_cart</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a shopping cart with several products, quantities and
+prices.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_order">
+<tt class="descname">test_order</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an order on the basis of a shopping cart and a customer
+object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.tests.CoreTestMixin.test_orderstate_change_tracking">
+<tt class="descname">test_orderstate_change_tracking</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.tests.CoreTestMixin.test_orderstate_change_tracking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the state of an order, see if the state change gets logged.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="context_processors.html"
+                        title="previous chapter">Context processors</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="exceptions.html"
+                        title="next chapter">Exceptions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/core/tests.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="exceptions.html" title="Exceptions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="context_processors.html" title="Context processors"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

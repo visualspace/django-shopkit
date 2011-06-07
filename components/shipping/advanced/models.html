@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Advanced" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Advanced" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Advanced"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Shipping</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Advanced</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.shipping.advanced.models</cite></p>
+<span class="target" id="module-shopkit.shipping.advanced.models"></span><span class="target" id="module-shopkit.shipping.advanced.models.shipping_models"></span><dl class="class">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.shipping_models.</tt><tt class="descname">ShippingMethodBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for shipping methods.</p>
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.get_valid_methods">
+<em class="property">classmethod </em><tt class="descname">get_valid_methods</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.get_valid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all valid shipping methods for a given <cite>kwargs</cite>. By default,
+all methods are valid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.is_valid">
+<tt class="descname">is_valid</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check to see whether an individual method is valid under the
+given circumstances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.get_cost">
+<tt class="descname">get_cost</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ShippingMethodBase.get_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total shipping costs resulting from this <cite>ShippingMethod</cite>.
+This method should be implemented by subclasses of
+<cite>:class:ShippingMethodBase</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.shipping_models.</tt><tt class="descname">OrderShippingMethodMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for shipping methods which process whole orders and not
+individual items.</p>
+<dl class="attribute">
+<dt id="shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.order_cost">
+<tt class="descname">order_cost</tt><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.order_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total shipping cost for orders for which this method applies.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.get_valid_methods">
+<em class="property">classmethod </em><tt class="descname">get_valid_methods</tt><big>(</big><em>order_methods=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.get_valid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between methods valid for
+the whole order and those valid for order items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order_methods</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>order_cost</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>order_cost</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.get_cheapest">
+<em class="property">classmethod </em><tt class="descname">get_cheapest</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.OrderShippingMethodMixin.get_cheapest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cheapest order shipping method if <cite>order_methods</cite> is
+specified. Return whatever it is the superclass returns otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.shipping_models.</tt><tt class="descname">ItemShippingMethodMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for shipping methods which process individual items and not
+whole orders.</p>
+<dl class="attribute">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.item_cost">
+<tt class="descname">item_cost</tt><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.item_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total shipping cost for items for which this method applies.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.get_valid_methods">
+<em class="property">classmethod </em><tt class="descname">get_valid_methods</tt><big>(</big><em>item_methods=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.get_valid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between methods valid for
+the whole item and those valid for item items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_methods</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>item_cost</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>item_cost</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.get_cheapest">
+<em class="property">classmethod </em><tt class="descname">get_cheapest</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.get_cheapest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cheapest shipping method or <cite>None</cite>.</p>
+<p>If <cite>item_cost</cite> is not specified, an attempt will be made to call
+<cite>get_cheapest</cite> on the superclass. If this method does not exist in
+the superclass, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.shipping_models.MinimumOrderAmountShippingMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.shipping_models.</tt><tt class="descname">MinimumOrderAmountShippingMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.MinimumOrderAmountShippingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Shipping mixin for methods valid only from a specified order amount.</p>
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.MinimumOrderAmountShippingMixin.get_valid_methods">
+<em class="property">classmethod </em><tt class="descname">get_valid_methods</tt><big>(</big><em>order_price=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.MinimumOrderAmountShippingMixin.get_valid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shipping methods for which the order price is above the
+minimal order price or ones for which no minimal order price has
+been specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order_price</strong> &#8211; Price for the current order, used to determine
+valid shipping methods.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.shipping_models.MinimumItemAmountShippingMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.shipping_models.</tt><tt class="descname">MinimumItemAmountShippingMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.MinimumItemAmountShippingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Shipping mixin for methods valid only from a specified order amount.</p>
+<dl class="classmethod">
+<dt id="shopkit.shipping.advanced.models.shipping_models.MinimumItemAmountShippingMixin.get_valid_methods">
+<em class="property">classmethod </em><tt class="descname">get_valid_methods</tt><big>(</big><em>item_price=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.shipping_models.MinimumItemAmountShippingMixin.get_valid_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shipping methods for which the item price is above a
+minimum price or ones for which no minimal item price has
+been specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_price</strong> &#8211; Price for the current <cite>OrderItem</cite>, used to
+determine valid shipping methods.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-shopkit.shipping.advanced.models.order_models"></span><dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">AutomaticShippingMixin</tt><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Mixin class for shippable items for which the choice of method is
+automatic.</p>
+<dl class="method">
+<dt id="shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin.get_shipping_method">
+<tt class="descname">get_shipping_method</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin.get_shipping_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shipping method used for the current item. This method
+should be overridden in subclasses. It should return <cite>None</cite> if
+shipping is not applicable for this item and hence, the shipping
+costs should be 0.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">CheapestShippingMixin</tt><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin" title="shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin</span></tt></a></p>
+<p>Shippable item which defaults to using the</p>
+<dl class="method">
+<dt id="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin.get_shipping_method">
+<tt class="descname">get_shipping_method</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin.get_shipping_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cheapest shipping method or an order or item.</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">This code is probably a bit too low-level.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">PersistentShippedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin class for <cite>Order</cite>&#8216;s and <cite>OrderItem</cite>&#8216;s for which the shipping method
+is stored persistently upon calling the <cite>update_shipping</cite> method.</p>
+<dl class="method">
+<dt id="shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase.update_shipping">
+<tt class="descname">update_shipping</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase.update_shipping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call <cite>update_shipping</cite> on the superclass and get the shipping method,
+store the resulting <cite>ShippingMethod</cite> on the <cite>shipping_method</cite>
+property.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.ShippedCartMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">ShippedCartMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.ShippedCartMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CalculatedShippingOrderMixin</span></tt>, <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin" title="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CheapestShippingMixin</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.shipping.basemodels.ShippedCartBase" title="shopkit.shipping.basemodels.ShippedCartBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedCartBase</span></tt></a></p>
+<p>Base class for shopping carts with shippable items.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.ShippedCartItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">ShippedCartItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.ShippedCartItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CalculatedShippingItemMixin</span></tt>, <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin" title="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CheapestShippingMixin</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.shipping.basemodels.ShippedCartItemBase" title="shopkit.shipping.basemodels.ShippedCartItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedCartItemBase</span></tt></a></p>
+<p>Base class for shopping cart items which are shippable.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.ShippedOrderMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">ShippedOrderMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.ShippedOrderMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase" title="shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.shipping.basemodels.ShippedOrderBase" title="shopkit.shipping.basemodels.ShippedOrderBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedOrderBase</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CalculatedShippingOrderMixin</span></tt>, <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin" title="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CheapestShippingMixin</span></tt></a></p>
+<p>Base class for orders with a shipping_method.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.advanced.models.order_models.ShippedOrderItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.advanced.models.order_models.</tt><tt class="descname">ShippedOrderItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.advanced.models.order_models.ShippedOrderItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase" title="shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.PersistentShippedItemBase</span></tt></a>, <tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CalculatedShippingItemMixin</span></tt>, <a class="reference internal" href="#shopkit.shipping.advanced.models.order_models.CheapestShippingMixin" title="shopkit.shipping.advanced.models.order_models.CheapestShippingMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.advanced.models.order_models.CheapestShippingMixin</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.shipping.basemodels.ShippedOrderItemBase" title="shopkit.shipping.basemodels.ShippedOrderItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedOrderItemBase</span></tt></a></p>
+<p>Base class for orderitems which can have individual shipping costs
+applied to them.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Advanced</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/shipping/advanced/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Advanced"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Shipping</a> &raquo;</li>
+          <li><a href="index.html" >Advanced</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

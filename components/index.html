@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Components &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../index.html" />
+    <link rel="next" title="Core" href="core/index.html" />
+    <link rel="prev" title="Writing extensions" href="../extending.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core/index.html" title="Core"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../extending.html" title="Writing extensions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">django-shopkit v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<p>It is of the <em>utmost</em> importance to keep core and extension functionality
+separated.</p>
+<p>The criterium for this should be in the dependency tree of the respective
+modules: core modules should <em>never</em> depend on extension modules but are free
+to depend on one another. Similarly: extensions modules can freely depend on
+any core modules but should, generally, not depend on one another.</p>
+<p>Furthermore: the core API should provide for hooks to allow for any of the
+extension modules. Hooks should be added only when an actual need for them
+exist and not beforehand, as we should keep the code, API and documentation as
+simple as possible.</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/basemodels.html">Base models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/managers.html">Managers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/forms.html">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/utils/index.html">Utils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/context_processors.html">Context processors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/exceptions.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/signals.html">Signals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/listeners.html">Listeners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="price/index.html">Price</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="price/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shipping/index.html">Shipping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shipping/advanced/index.html">Advanced</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shipping/settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shipping/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shipping/basemodels.html">Base models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="category/index.html">Category</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="category/basemodels.html">Base models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="category/settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="category/tests.html">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="category/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="category/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vat/index.html">Value Added Tax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vat/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vat/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="currency/index.html">Currency</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="currency/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="currency/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configurable/index.html">Configurable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configurable/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configurable/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="variations/index.html">Variations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variations/admin.html">Admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variations/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variations/settings.html">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="images/index.html">Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="images/admin.html">Admin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images/settings.html">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="discounts/index.html">Discounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="discounts/basemodels.html">Base models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discounts/settings.html">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discounts/advanced/index.html">Advanced discounts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stock/index.html">Stock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stock/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stock/exceptions.html">Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stock/simple/index.html">Simple</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stock/advanced/index.html">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related/index.html">Related products</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="related/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="related/settings.html">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="brands/index.html">Brand management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="brands/models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="brands/settings.html">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="featured/index.html">Featured products</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="featured/models.html">Models</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../extending.html"
+                        title="previous chapter">Writing extensions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="core/index.html"
+                        title="next chapter">Core</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/components/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="core/index.html" title="Core"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../extending.html" title="Writing extensions"
+             >previous</a> |</li>
+        <li><a href="../index.html">django-shopkit v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

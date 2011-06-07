@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>TODO List &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="index.html" />
+    <link rel="next" title="Writing extensions" href="extending.html" />
+    <link rel="prev" title="Getting started" href="gettingstarted.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extending.html" title="Writing extensions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting started"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">django-shopkit v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="todo-list">
+<h1>TODO List<a class="headerlink" href="#todo-list" title="Permalink to this headline">¶</a></h1>
+<p>These are tasks specified in the source and the documentation which are
+marked as TODO items and hence are to be seen as work in progress.</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Add methods for listing all available products (using the <cite>in_shop</cite>
+manager) for a given brand.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/brands/models.html#index-0"><em>original entry</em></a> is located in  components/brands/models.rst, line 15.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Cache this. It is a slow operation which requires
+as many queries as the category tree is deep.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/category/basemodels.html#index-0"><em>original entry</em></a> is located in  components/category/basemodels.rst, line 94.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">We want a setting allowing us to limit the nestedness of categories.
+For &#8216;navigational&#8217; reasons, a number of 3 should be a reasonable default.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/category/index.html#index-0"><em>original entry</em></a> is located in  components/category/index.rst, line 14.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">We should consider adding a manager to <tt class="xref py py-class docutils literal"><span class="pre">OrderBase</span></tt> which
+can filter on the completed states.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/basemodels.html#index-0"><em>original entry</em></a> is located in  components/core/basemodels.rst, line 24.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Make this lazy object: we should only perform the actual
+database query when this object is requested from within
+template.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/context_processors.html#index-0"><em>original entry</em></a> is located in  components/core/context_processors.rst, line 11.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use aggregation here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/models.html#index-0"><em>original entry</em></a> is located in  components/core/models.rst, line 162.)</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use aggregation here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/models.html#index-1"><em>original entry</em></a> is located in  components/core/models.rst, line 343.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Make an API hook allowing us to check whether a product available
+for adding it to a cart.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/views.html#index-0"><em>original entry</em></a> is located in  components/core/views.rst, line 45.)</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Graceously handle errors instead of form_invalid noting that
+render_to_response was not found.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/views.html#index-1"><em>original entry</em></a> is located in  components/core/views.rst, line 70.)</p>
+<div class="admonition-todo admonition " id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">Decide whether or not to make the default success url a
+configuration value or not.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/core/views.html#index-2"><em>original entry</em></a> is located in  components/core/views.rst, line 89.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use a setting to define the way in which prices are formatted site-wide.
+This way we have a simple mechanism for formatting prices everywhere
+on the site while leaving everything loosely coupled.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/currency/index.html#index-0"><em>original entry</em></a> is located in  components/currency/index.rst, line 9.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Provide a listing/overview of the types of DiscountMixin&#8217;s available,
+how they should be used and... whether they have been tested or not.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-0"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 6.)</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this! There are likely to be bugs...</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-1"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 187.)</p>
+<div class="admonition-todo admonition " id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this code.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-2"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 238.)</p>
+<div class="admonition-todo admonition " id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this! There are likely to be bugs...</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-3"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 269.)</p>
+<div class="admonition-todo admonition " id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">Unittest this function.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-4"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 305.)</p>
+<div class="admonition-todo admonition " id="index-5">
+<p class="first admonition-title">Todo</p>
+<p class="last">Write tests for this.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-5"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 317.)</p>
+<div class="admonition-todo admonition " id="index-6">
+<p class="first admonition-title">Todo</p>
+<p class="last">Provide a listing/overview of the types of DiscountMixin&#8217;s available,
+how they should be used and... whether they have been tested or not.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/advanced/models.html#index-6"><em>original entry</em></a> is located in  components/discounts/advanced/models.rst, line 7.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Figure out what to do when multiple discounts are valid. Really, some
+though should be put into this. Maybe something like a <cite>combine_with</cite>
+boolean or other customizable behaviour.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/discounts/index.html#index-0"><em>original entry</em></a> is located in  components/discounts/index.rst, line 6.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Write the <cite>is_featured</cite> manager - and test it.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/featured/models.html#index-0"><em>original entry</em></a> is located in  components/featured/models.rst, line 14.)</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Make sure the <cite>is_featured</cite> manager for this base model uses the 
+<cite>featured_order</cite> attribute.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/featured/models.html#index-1"><em>original entry</em></a> is located in  components/featured/models.rst, line 32.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Add a setting for returning stub images when no
+default image currently exists.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/images/admin.html#index-0"><em>original entry</em></a> is located in  components/images/admin.rst, line 35.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">This code is probably a bit too low-level.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/shipping/advanced/models.html#index-0"><em>original entry</em></a> is located in  components/shipping/advanced/models.rst, line 36.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Write documentation here.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/stock/advanced/index.html#index-0"><em>original entry</em></a> is located in  components/stock/advanced/index.rst, line 4.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Write more descriptive documentation here about the stock management
+API&#8217;s.</p>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/stock/index.html#index-0"><em>original entry</em></a> is located in  components/stock/index.rst, line 6.)</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p>Decide whether this bugger belongs into :module:shopkit.core or
+whether it is just fine at it&#8217;s place right here.</p>
+<ul class="last simple">
+<li>Pro: We&#8217;ll have a generic API for determining the stock state of
+items.</li>
+<li>Con: It&#8217;s bad to have too much code in the core, it is better if
+modules within <cite>django-shopkit</cite> have the least possible knowledge
+about one another.</li>
+</ul>
+</div>
+<p class="todo-source">(The <a class="reference internal" href="components/stock/models.html#index-0"><em>original entry</em></a> is located in  components/stock/models.rst, line 14.)</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gettingstarted.html"
+                        title="previous chapter">Getting started</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="extending.html"
+                        title="next chapter">Writing extensions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/todo.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="extending.html" title="Writing extensions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gettingstarted.html" title="Getting started"
+             >previous</a> |</li>
+        <li><a href="index.html">django-shopkit v0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

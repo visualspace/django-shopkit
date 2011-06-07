@@ -1,0 +1,343 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Base models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Models" href="models.html" />
+    <link rel="prev" title="Core" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Core"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="base-models">
+<h1>Base models<a class="headerlink" href="#base-models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.basemodels</cite></p>
+<span class="target" id="module-shopkit.core.basemodels"></span><dl class="class">
+<dt id="shopkit.core.basemodels.AbstractCustomerBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">AbstractCustomerBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractCustomerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for customers of the shop.</p>
+<dl class="method">
+<dt id="shopkit.core.basemodels.AbstractCustomerBase.get_all_orders">
+<tt class="descname">get_all_orders</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractCustomerBase.get_all_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all orders by the customer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.AbstractCustomerBase.get_confirmed_orders">
+<tt class="descname">get_confirmed_orders</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractCustomerBase.get_confirmed_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all completed orders for this customer</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">We should consider adding a manager to <tt class="xref py py-class docutils literal"><span class="pre">OrderBase</span></tt> which
+can filter on the completed states.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.AbstractCustomerBase.get_latest_order">
+<tt class="descname">get_latest_order</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractCustomerBase.get_latest_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lastest confirmed order</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.AbstractPricedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">AbstractPricedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractPricedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for items with a price. This only contains
+a <cite>get_price</cite> dummy function yielding a NotImplementedError. An
+actual <cite>price</cite> field is contained in the <cite>PricedItemBase</cite> class.</p>
+<p>This is because we might want to get our prices somewhere else, ie.
+using some kind of algorithm, web API or database somewhere.</p>
+<dl class="method">
+<dt id="shopkit.core.basemodels.AbstractPricedItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.AbstractPricedItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get price for the current product.</p>
+<p>This method _should_ be implemented in a subclass.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.QuantizedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">QuantizedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.QuantizedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for items with a quantity field.</p>
+<dl class="attribute">
+<dt id="shopkit.core.basemodels.QuantizedItemBase.quantity">
+<tt class="descname">quantity</tt><a class="headerlink" href="#shopkit.core.basemodels.QuantizedItemBase.quantity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of items of this kind. The default is 0: this is necessary so
+that we can add a certain quantity to a new object without knowing its
+initial value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.NamedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">NamedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NamedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for items with a name.</p>
+<dl class="attribute">
+<dt id="shopkit.core.basemodels.NamedItemBase.name">
+<tt class="descname">name</tt><a class="headerlink" href="#shopkit.core.basemodels.NamedItemBase.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of this item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.OrderedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">OrderedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for items that have explicit ordering.</p>
+<dl class="method">
+<dt id="shopkit.core.basemodels.OrderedItemBase.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedItemBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>If no <cite>sort_order</cite> has been specified, make sure we calculate the
+it based on the highest available current <cite>sort_order</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.OrderedInlineItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">OrderedInlineItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedInlineItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>This base class does what, actually, order_with_respect_to should do
+but (for now) doesn&#8217;t implement very well: ordering of objects with
+a fk-relation to some class.</p>
+<p>As we do not know what the class with the respective relation is, it
+is important to note that something like the following is added:</p>
+<div class="highlight-python"><pre>class MyOrderedInline(OrderedInlineItemBase):
+
+    &lt;related&gt; = models.ForeignKey(RelatedModel)
+
+    class Meta(OrderedInlineItemBase.Meta):
+        unique_together = ('sort_order', '&lt;related&gt;')
+
+    def get_related_ordering(self):
+        return self.__class__.objects.filter(&lt;related&gt;=self.&lt;related&gt;)
+
+
+
+... Or we could simply wait for the Django developers to fix
+`order_with_respect_to` once and for all. (Work in progress...
+See `Ticket #13 &lt;http://code.djangoproject.com/ticket/13&gt;`.)</pre>
+</div>
+<dl class="method">
+<dt id="shopkit.core.basemodels.OrderedInlineItemBase.get_related_ordering">
+<tt class="descname">get_related_ordering</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedInlineItemBase.get_related_ordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a <tt class="xref py py-class docutils literal"><span class="pre">QuerySet</span> <span class="pre">&lt;django.db.models.QuerySet.QuerySet</span></tt>
+with related items to be considered for calculating the next
+<cite>sort_order</cite>.</p>
+<p>As we do not know in this base class what the related field(s)
+are, this raises a NotImplementedError. It should be subclassed
+with something like:</p>
+<div class="highlight-python"><pre>return self.objects.filter(&lt;related&gt;=self.&lt;related&gt;)</pre>
+</div>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="shopkit.core.basemodels.OrderedInlineItemBase.get_next_ordering">
+<em class="property">static </em><tt class="descname">get_next_ordering</tt><big>(</big><em>related</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedInlineItemBase.get_next_ordering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next ordering based upon the <tt class="xref py py-class docutils literal"><span class="pre">QuerySet</span> <span class="pre">&lt;django.db.models.QuerySet.QuerySet</span></tt>
+with related items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.OrderedInlineItemBase.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.OrderedInlineItemBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>If no <cite>sort_order</cite> has been specified, make sure we calculate the
+it based on the highest available current <cite>sort_order</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.ActiveItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">ActiveItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.ActiveItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for items which can be activated or deactivated.</p>
+<dl class="attribute">
+<dt id="shopkit.core.basemodels.ActiveItemBase.active">
+<tt class="descname">active</tt><a class="headerlink" href="#shopkit.core.basemodels.ActiveItemBase.active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the item is active in the frontend.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.ActiveItemInShopBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">ActiveItemInShopBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.ActiveItemInShopBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.core.basemodels.ActiveItemBase" title="shopkit.core.basemodels.ActiveItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.ActiveItemBase</span></tt></a></p>
+<p>This is a subclass of <a class="reference internal" href="#shopkit.core.basemodels.ActiveItemBase" title="shopkit.core.basemodels.ActiveItemBase"><tt class="xref py py-class docutils literal"><span class="pre">ActiveItemBase</span></tt></a> with an
+<a class="reference internal" href="managers.html#shopkit.core.managers.ActiveItemManager" title="shopkit.core.managers.ActiveItemManager"><tt class="xref py py-class docutils literal"><span class="pre">ActiveItemManager</span></tt></a> called <cite>in_shop</cite>.</p>
+<p>The main purpose of this class is allowing for items to be enabled or
+disabled in the shop&#8217;s frontend</p>
+<dl class="attribute">
+<dt id="shopkit.core.basemodels.ActiveItemInShopBase.in_shop">
+<tt class="descname">in_shop</tt><a class="headerlink" href="#shopkit.core.basemodels.ActiveItemInShopBase.in_shop" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of <a class="reference internal" href="managers.html#shopkit.core.managers.ActiveItemManager" title="shopkit.core.managers.ActiveItemManager"><tt class="xref py py-class docutils literal"><span class="pre">ActiveItemManager</span></tt></a>,
+returning only items with <cite>active=True</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.DatedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">DatedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.DatedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Item for which the add and modification date are automatically
+tracked.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.PublishDateItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">PublishDateItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.PublishDateItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Item with a publish date.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.basemodels.NumberedOrderBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.basemodels.</tt><tt class="descname">NumberedOrderBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NumberedOrderBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for <cite>Order</cite> with invoice and order numbers.</p>
+<dl class="method">
+<dt id="shopkit.core.basemodels.NumberedOrderBase.generate_invoice_number">
+<tt class="descname">generate_invoice_number</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NumberedOrderBase.generate_invoice_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an invoice number for the current order. Should be
+overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.NumberedOrderBase.generate_order_number">
+<tt class="descname">generate_order_number</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NumberedOrderBase.generate_order_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates an order number for the current order. Should be
+overridden in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.NumberedOrderBase.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NumberedOrderBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an order number upon saving the order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.basemodels.NumberedOrderBase.confirm">
+<tt class="descname">confirm</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.basemodels.NumberedOrderBase.confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we set an invoice number upon order confirmation.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Core</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="models.html"
+                        title="next chapter">Models</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/core/basemodels.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Core"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

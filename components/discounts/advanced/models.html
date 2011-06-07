@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Advanced discounts" href="index.html" />
+    <link rel="next" title="Stock" href="../../stock/index.html" />
+    <link rel="prev" title="Admin" href="admin.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../stock/index.html" title="Stock"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="admin.html" title="Admin"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Discounts</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Advanced discounts</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.discounts.advanced.models</cite></p>
+<span class="target" id="module-shopkit.discounts.advanced.models"></span><span class="target" id="module-shopkit.discounts.advanced.models.discount_models"></span><p>Model base and mixin classes for building discount model and logic.</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Provide a listing/overview of the types of DiscountMixin&#8217;s available,
+how they should be used and... whether they have been tested or not.</p>
+</div>
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.DiscountBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">DiscountBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DiscountBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for discounts.</p>
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.DiscountBase.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DiscountBase.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all valid discount objects for a given <cite>kwargs</cite>. By default,
+all discounts are invalid.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.DiscountBase.get_all_discounts">
+<em class="property">classmethod </em><tt class="descname">get_all_discounts</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DiscountBase.get_all_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all discounts, whether valid or not.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.DiscountBase.is_valid">
+<tt class="descname">is_valid</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DiscountBase.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check to see whether an individual discount is valid under the
+given circumstances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.DiscountBase.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DiscountBase.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total amount of discount produced by this <cite>Discount</cite>. This
+method should be implemented by subclasses of <cite>:class:DiscountBase</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">OrderDiscountAmountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for absolute amount discounts which act on the total price
+for an order.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.order_amount">
+<tt class="descname">order_amount</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.order_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute discount on the total of an order.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between discounts valid for
+the whole order and those valid for order items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order_discounts</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>order_amount</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>order_amount</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total amount of discount for the current item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">ItemDiscountAmountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for absolute amount discounts, valid only for the particular
+items in this order.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.item_amount">
+<tt class="descname">item_amount</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.item_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Absolute discount for items of an order for which this discount
+is valid.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between discounts valid for
+the whole order and those valid for order items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_discounts</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>item_amount</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>item_amount</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountAmountMixin.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total amount of discount for the current item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">OrderDiscountPercentageMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for discounts which apply as a percentage from the total
+order amount.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.order_percentage">
+<tt class="descname">order_percentage</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.order_percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentual discount on the total of an order.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between discounts valid for
+the whole order and those valid for order items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>order_discounts</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>order_amount</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>order_amount</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total amount of discount for the current item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">ItemDiscountPercentageMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for percentual discounts, valid only for the particular
+items in this order.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.item_percentage">
+<tt class="descname">item_percentage</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.item_percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Percentual discount for items of an order for which this discount
+is valid.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to be able to discriminate between discounts valid for
+the whole order and those valid for order items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_discounts</strong> &#8211; When <cite>True</cite>, only items for which
+<cite>item_amount</cite> has been specified are valid.
+When <cite>False</cite>, only items which have no
+<cite>item_amount</cite> specified are let through.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ItemDiscountPercentageMixin.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total amount of discount for the current item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">ProductDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin defining a discount valid for a single product.</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this! There are likely to be bugs...</p>
+</div>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin.product">
+<tt class="descname">product</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product this discount relates to.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ProductDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for a specified product</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">ManyProductDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin defining discounts based on products.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin.products">
+<tt class="descname">products</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin.products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Products this discount relates to.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for a specified product</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.DateRangeDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">DateRangeDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DateRangeDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin for discount which are only valid within a given date range.</p>
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.DateRangeDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.DateRangeDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for a specified date, taking the current
+date if no date is specified. When no start or end date are specified,
+a discount defaults to be valid.</p>
+<div class="admonition-todo admonition " id="index-2">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this code.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">CategoryDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin defining discounts based on a single category.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin.category">
+<tt class="descname">category</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin.category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Category this discount relates to.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CategoryDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for a specified product</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">ManyCategoryDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin defining discounts based on a collection of categories.</p>
+<div class="admonition-todo admonition " id="index-3">
+<p class="first admonition-title">Todo</p>
+<p class="last">Test this! There are likely to be bugs...</p>
+</div>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin.categories">
+<tt class="descname">categories</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin.categories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categories this discount relates to.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for a specified product</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">CouponDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Discount based on a specified coupon code.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.coupon_code">
+<tt class="descname">coupon_code</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.coupon_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code for this coupon, which will be automatically generated upon saving.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.generate_coupon_code">
+<em class="property">static </em><tt class="descname">generate_coupon_code</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.generate_coupon_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a coupon code of <cite>COUPON_LENGHT</cite> characters consisting
+of the characters in <cite>COUPON_CHARACTERS</cite>.</p>
+<div class="admonition-todo admonition " id="index-4">
+<p class="first admonition-title">Todo</p>
+<p class="last">Unittest this function.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>coupon_code=None</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.CouponDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return only items for which no coupon code has been set or
+ones for which the current coupon code matches that of the
+discounts.</p>
+<div class="admonition-todo admonition " id="index-5">
+<p class="first admonition-title">Todo</p>
+<p class="last">Write tests for this.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">AccountedUseDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin class for discounts for which the number of uses is accounted.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin.used">
+<tt class="descname">used</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin.used" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of times this discount has been used.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin.register_use">
+<em class="property">classmethod </em><tt class="descname">register_use</tt><big>(</big><em>qs</em>, <em>count=1</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin.register_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register <cite>count</cite> uses of discounts in queryset <cite>qs</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.discount_models.</tt><tt class="descname">LimitedUseDiscountMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin" title="shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.discount_models.AccountedUseDiscountMixin</span></tt></a></p>
+<p>Mixin class for discounts which can only be used a limited number
+of times.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.use_limit">
+<tt class="descname">use_limit</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.use_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maximum number of times this discount may be used. If this value is
+not given, no limit is imposed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.get_uses_left">
+<tt class="descname">get_uses_left</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.get_uses_left" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of uses left.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.get_valid_discounts">
+<em class="property">classmethod </em><tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return currently valid discounts: ones for which either no use
+limit has been set or for which the amount of uses lies under the
+limit.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-shopkit.discounts.advanced.models.order_models"></span><p>Model base and mixin classes for carts and orders with calculated
+discounts.</p>
+<div class="admonition-todo admonition " id="index-6">
+<p class="first admonition-title">Todo</p>
+<p class="last">Provide a listing/overview of the types of DiscountMixin&#8217;s available,
+how they should be used and... whether they have been tested or not.</p>
+</div>
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">CalculatedDiscountMixin</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for items for which the discount is calculated using
+a <cite>Discount</cite> model.</p>
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin.get_valid_discounts">
+<tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for the given arguments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">CalculatedOrderDiscountMixin</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin</span></tt></a></p>
+<p>Mixin class for discounted objects for which an order discount can be
+calculated by calling <cite>get_order_discount</cite> and valid discounts can be
+obtained by calling <cite>get_valid_discounts</cite>.</p>
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin.get_valid_discounts">
+<tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for the current order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin.get_order_discount">
+<tt class="descname">get_order_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin.get_order_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the discount specific for this <cite>Order</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">CalculatedItemDiscountMixin</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin</span></tt></a></p>
+<p>Mixin class for discounted objects for which an item discount can be
+calculated by calling <cite>get_order_discount</cite> and valid discounts can be
+obtained by calling <cite>get_valid_discounts</cite>.</p>
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_valid_discounts">
+<tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for the current order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_total_discount">
+<tt class="descname">get_total_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_total_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total discount for this OrderItem.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">PersistentDiscountedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Mixin class for <cite>Order</cite>&#8216;s and <cite>OrderItem</cite>&#8216;s for which calculated discounts
+are persistently stored in a <cite>discounts</cite> property upon calling the
+<cite>update_discount</cite> method.</p>
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase.update_discount">
+<tt class="descname">update_discount</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase.update_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call <cite>update_discount</cite> on the superclass to calculate the amount of
+discount, then store valid <cite>Discount</cite> objects for this order item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountedCartMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">DiscountedCartMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountedCartMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.discounts.basemodels.DiscountedCartBase" title="shopkit.discounts.basemodels.DiscountedCartBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedCartBase</span></tt></a></p>
+<p>Mixin class for <cite>Cart</cite> objects which have their discount calculated.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountedCartItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">DiscountedCartItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountedCartItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.discounts.basemodels.DiscountedCartItemBase" title="shopkit.discounts.basemodels.DiscountedCartItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedCartItemBase</span></tt></a></p>
+<p>Mixin class for <cite>Cart</cite> objects which have their discount calculated.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountedOrderMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">DiscountedOrderMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountedOrderMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase" title="shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.discounts.basemodels.DiscountedOrderBase" title="shopkit.discounts.basemodels.DiscountedOrderBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedOrderBase</span></tt></a>, <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin</span></tt></a></p>
+<p>Mixin class for <cite>Order</cite> objects which have their discount calculated.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountedOrderItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">DiscountedOrderItemMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountedOrderItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin" title="shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin</span></tt></a>, <a class="reference internal" href="#shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase" title="shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.advanced.models.order_models.PersistentDiscountedItemBase</span></tt></a>, <a class="reference internal" href="../basemodels.html#shopkit.discounts.basemodels.DiscountedOrderItemBase" title="shopkit.discounts.basemodels.DiscountedOrderItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedOrderItemBase</span></tt></a></p>
+<p>Mixin class for <cite>OrderItem</cite> objects which have their discount calculated.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.AccountedDiscountedItemMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">AccountedDiscountedItemMixin</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.AccountedDiscountedItemMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Model mixin class for orders for which the use is automatically accounted
+upon confirmation.</p>
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.AccountedDiscountedItemMixin.confirm">
+<tt class="descname">confirm</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.AccountedDiscountedItemMixin.confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register discount usage.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountCouponMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.advanced.models.order_models.</tt><tt class="descname">DiscountCouponMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountCouponMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Model mixin class for orders or cart for which discounts are calculated based
+on a given coupon code.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountCouponMixin.coupon_code">
+<tt class="descname">coupon_code</tt><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountCouponMixin.coupon_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coupon code entered for the current order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.advanced.models.order_models.DiscountCouponMixin.get_valid_discounts">
+<tt class="descname">get_valid_discounts</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.advanced.models.order_models.DiscountCouponMixin.get_valid_discounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid discounts for the current order.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="admin.html"
+                        title="previous chapter">Admin</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../stock/index.html"
+                        title="next chapter">Stock</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/discounts/advanced/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../stock/index.html" title="Stock"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="admin.html" title="Admin"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Discounts</a> &raquo;</li>
+          <li><a href="index.html" >Advanced discounts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

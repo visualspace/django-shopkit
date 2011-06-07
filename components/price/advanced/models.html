@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Advanced" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Advanced" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Advanced"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Price</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Advanced</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.price.advanced.models</cite></p>
+<span class="target" id="module-shopkit.price.advanced.models"></span><dl class="class">
+<dt id="shopkit.price.advanced.models.PriceBase">
+<em class="property">class </em><tt class="descclassname">shopkit.price.advanced.models.</tt><tt class="descname">PriceBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.PriceBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../models.html#shopkit.price.models.PricedItemBase" title="shopkit.price.models.PricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.price.models.PricedItemBase</span></tt></a></p>
+<p>Abstract base class for price models, exposing a method to get the
+cheapest price under given conditions.</p>
+<p>Be sure to add the proper <cite>unique_together</cite> contraints to subclasses
+implementing an actual price model.</p>
+<dl class="classmethod">
+<dt id="shopkit.price.advanced.models.PriceBase.get_cheapest">
+<em class="property">classmethod </em><tt class="descname">get_cheapest</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.PriceBase.get_cheapest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the cheapest available price under
+given conditions.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.price.advanced.models.PriceBase.get_valid_prices">
+<em class="property">classmethod </em><tt class="descname">get_valid_prices</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.PriceBase.get_valid_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get valid prices (as a QuerySet), given certain constraints. By
+default, this returns all prices available. Where applicable,
+subclasses might filter this result by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Product</li>
+<li>Date</li>
+<li>Quantity</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.price.advanced.models.ProductPriceMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.price.advanced.models.</tt><tt class="descname">ProductPriceMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.ProductPriceMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Represents prices available for a specific product product.</p>
+<dl class="attribute">
+<dt id="shopkit.price.advanced.models.ProductPriceMixin.product">
+<tt class="descname">product</tt><a class="headerlink" href="#shopkit.price.advanced.models.ProductPriceMixin.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product this price relates to.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.price.advanced.models.ProductPriceMixin.get_valid_prices">
+<em class="property">classmethod </em><tt class="descname">get_valid_prices</tt><big>(</big><em>product</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.ProductPriceMixin.get_valid_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid prices for a specified product</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.price.advanced.models.DateRangedPriceMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.price.advanced.models.</tt><tt class="descname">DateRangedPriceMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.DateRangedPriceMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for a price that is only valid within a given date range.</p>
+<dl class="classmethod">
+<dt id="shopkit.price.advanced.models.DateRangedPriceMixin.get_valid_prices">
+<em class="property">classmethod </em><tt class="descname">get_valid_prices</tt><big>(</big><em>date=None</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.DateRangedPriceMixin.get_valid_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid prices for a specified date, taking the current
+date if no date is specified.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.price.advanced.models.QuantifiedPriceMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.price.advanced.models.</tt><tt class="descname">QuantifiedPriceMixin</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.QuantifiedPriceMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../core/basemodels.html#shopkit.core.basemodels.QuantizedItemBase" title="shopkit.core.basemodels.QuantizedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.QuantizedItemBase</span></tt></a></p>
+<p>Base class for a price that is only valid above a certain quantity.</p>
+<dl class="classmethod">
+<dt id="shopkit.price.advanced.models.QuantifiedPriceMixin.get_valid_prices">
+<em class="property">classmethod </em><tt class="descname">get_valid_prices</tt><big>(</big><em>quantity=1</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.price.advanced.models.QuantifiedPriceMixin.get_valid_prices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get valid prices for a given quantity of items. If no
+quantity is given, 1 is assumed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Advanced</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../../_sources/components/price/advanced/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Advanced"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Components</a> &raquo;</li>
+          <li><a href="../index.html" >Price</a> &raquo;</li>
+          <li><a href="index.html" >Advanced</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

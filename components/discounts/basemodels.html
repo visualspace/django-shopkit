@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Base models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Discounts" href="index.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Discounts" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Discounts"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Discounts</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="base-models">
+<h1>Base models<a class="headerlink" href="#base-models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.discounts.basemodels</cite></p>
+<span class="target" id="module-shopkit.discounts.basemodels"></span><dl class="class">
+<dt id="shopkit.discounts.basemodels.DiscountedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.basemodels.</tt><tt class="descname">DiscountedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../core/basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a></p>
+<p>Mixin class for discounted items.</p>
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedItemBase.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedItemBase.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the most sensible discount related to this item. By default,
+it returns the total discount applicable as yielded by
+<cite>get_total_discount</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedItemBase.get_total_discount">
+<tt class="descname">get_total_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedItemBase.get_total_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total discount applicable for this item. Must be
+implemented in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the price with the discount applied.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.basemodels.DiscountedCartBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.basemodels.</tt><tt class="descname">DiscountedCartBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedCartBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.basemodels.DiscountedItemBase" title="shopkit.discounts.basemodels.DiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedItemBase</span></tt></a></p>
+<p>Base class for shopping carts which can have discounts applied to them.</p>
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedCartBase.get_total_discount">
+<tt class="descname">get_total_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedCartBase.get_total_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total discount. This consists of the sum of discounts
+applicable to orders and the discounts applicable to items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedCartBase.get_order_discount">
+<tt class="descname">get_order_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedCartBase.get_order_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the whole order discount, as distinct from discount
+that apply to specific order items. This method must be implemented
+in subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.basemodels.DiscountedCartItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.basemodels.</tt><tt class="descname">DiscountedCartItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedCartItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.basemodels.DiscountedItemBase" title="shopkit.discounts.basemodels.DiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedItemBase</span></tt></a></p>
+<p>Base class for shopping cart items which can have discounts applied to
+them.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.basemodels.</tt><tt class="descname">DiscountedOrderBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.basemodels.DiscountedItemBase" title="shopkit.discounts.basemodels.DiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedItemBase</span></tt></a></p>
+<p>Base class for orders which can have discounts applied to them. This
+stores rather than calculates the discounts for order persistence.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderBase.order_discount">
+<tt class="descname">order_discount</tt><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderBase.order_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whole order discount, as distinct from discount
+that apply to specific order items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderBase.get_total_discount">
+<tt class="descname">get_total_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderBase.get_total_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total discount. This consists of the sum of discounts
+applicable to orders and the discounts applicable to items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderBase.get_order_discount">
+<tt class="descname">get_order_discount</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderBase.get_order_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the discount for this order. This basically returns the
+<cite>order_discount</cite> property. To recalculate/update this value, call the
+<cite>update_discount</cite> method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderBase.update_discount">
+<tt class="descname">update_discount</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderBase.update_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update discounts for order and order items</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.discounts.basemodels.</tt><tt class="descname">DiscountedOrderItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.discounts.basemodels.DiscountedItemBase" title="shopkit.discounts.basemodels.DiscountedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.discounts.basemodels.DiscountedItemBase</span></tt></a></p>
+<p>Base class for order items which can have discounts applied to them.</p>
+<dl class="attribute">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderItemBase.discount">
+<tt class="descname">discount</tt><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderItemBase.discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of discount applied to this item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderItemBase.get_discount">
+<tt class="descname">get_discount</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderItemBase.get_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the discount for this item. This basically returns the
+<cite>discount</cite> property. To recalculate/update this value, call the
+<cite>update_discount</cite> method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.discounts.basemodels.DiscountedOrderItemBase.update_discount">
+<tt class="descname">update_discount</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.discounts.basemodels.DiscountedOrderItemBase.update_discount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the discount</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Discounts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="settings.html"
+                        title="next chapter">Settings</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/discounts/basemodels.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="settings.html" title="Settings"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Discounts"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Discounts</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

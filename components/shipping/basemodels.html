@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Base models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Shipping" href="index.html" />
+    <link rel="next" title="Category" href="../category/index.html" />
+    <link rel="prev" title="Models" href="models.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../category/index.html" title="Category"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Shipping</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="base-models">
+<h1>Base models<a class="headerlink" href="#base-models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.shipping.basemodels</cite></p>
+<span class="target" id="module-shopkit.shipping.basemodels"></span><dl class="class">
+<dt id="shopkit.shipping.basemodels.ShippedItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.basemodels.</tt><tt class="descname">ShippedItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../core/basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a></p>
+<p>Base class for shippable items.</p>
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedItemBase.get_shipping_costs">
+<tt class="descname">get_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedItemBase.get_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the most sensible shipping cost associated with this item.
+By default, it returns the total shipping cost as yielded by
+<cite>get_total_shipping_costs</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedItemBase.get_total_shipping_costs">
+<tt class="descname">get_total_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedItemBase.get_total_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total shipping applicable for this item. Must be
+implemented in subclasses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedItemBase.get_price_without_shipping">
+<tt class="descname">get_price_without_shipping</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedItemBase.get_price_without_shipping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the price without shipping costs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the price with shipping costs applied.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.basemodels.ShippedCartBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.basemodels.</tt><tt class="descname">ShippedCartBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedCartBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.basemodels.ShippedItemBase" title="shopkit.shipping.basemodels.ShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedItemBase</span></tt></a></p>
+<p>Mixin class for shopping carts with shipping costs associated with them.</p>
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedCartBase.get_total_shipping_costs">
+<tt class="descname">get_total_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedCartBase.get_total_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total shipping cost for this <cite>Cart</cite>, summing up the shipping
+costs for the whole order and those for individual items (where
+applicable).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedCartBase.get_order_shipping_costs">
+<tt class="descname">get_order_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedCartBase.get_order_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shipping costs for this order. Must be implemented in
+subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.basemodels.ShippedCartItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.basemodels.</tt><tt class="descname">ShippedCartItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedCartItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.basemodels.ShippedItemBase" title="shopkit.shipping.basemodels.ShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedItemBase</span></tt></a></p>
+<p>Mixin class for <cite>CartItemz</cite>&#8216;s with a function <cite>get_shipping_costs()</cite>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.basemodels.</tt><tt class="descname">ShippedOrderBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.basemodels.ShippedItemBase" title="shopkit.shipping.basemodels.ShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedItemBase</span></tt></a></p>
+<p>Mixin class for orders with shipping costs associated with them.</p>
+<dl class="attribute">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase.shipping_address">
+<tt class="descname">shipping_address</tt><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase.shipping_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shipping address for this order</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase.order_shipping_costs">
+<tt class="descname">order_shipping_costs</tt><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase.order_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shipping costs relating to the whole order and not individual items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase.get_order_shipping_costs">
+<tt class="descname">get_order_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase.get_order_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the shipping costs for this order.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase.get_total_shipping_costs">
+<tt class="descname">get_total_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase.get_total_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the total shipping cost for this <cite>Cart</cite>, summing up the shipping
+costs for the whole order and those for individual items (where
+applicable).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedOrderBase.update_shipping">
+<tt class="descname">update_shipping</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderBase.update_shipping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the shipping costs for order and order items.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.shipping.basemodels.ShippedOrderItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.shipping.basemodels.</tt><tt class="descname">ShippedOrderItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#shopkit.shipping.basemodels.ShippedItemBase" title="shopkit.shipping.basemodels.ShippedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.shipping.basemodels.ShippedItemBase</span></tt></a></p>
+<p>Mixin class for <cite>OrderItem</cite>&#8216;s with shipping costs associated with them.</p>
+<dl class="attribute">
+<dt id="shopkit.shipping.basemodels.ShippedOrderItemBase.shipping_costs">
+<tt class="descname">shipping_costs</tt><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderItemBase.shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shipping costs for this item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedOrderItemBase.get_shipping_costs">
+<tt class="descname">get_shipping_costs</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderItemBase.get_shipping_costs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shipping costs for this item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.shipping.basemodels.ShippedOrderItemBase.update_shipping">
+<tt class="descname">update_shipping</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.shipping.basemodels.ShippedOrderItemBase.update_shipping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update shipping costs - does <em>not</em> save the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="models.html"
+                        title="previous chapter">Models</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../category/index.html"
+                        title="next chapter">Category</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/shipping/basemodels.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../category/index.html" title="Category"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="Models"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Shipping</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>

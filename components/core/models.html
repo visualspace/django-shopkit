@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Models &mdash; django-shopkit v0.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Managers" href="managers.html" />
+    <link rel="prev" title="Base models" href="basemodels.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="managers.html" title="Managers"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basemodels.html" title="Base models"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="models">
+<h1>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.models</cite></p>
+<span class="target" id="module-shopkit.core.models"></span><dl class="attribute">
+<dt id="shopkit.core.models.PriceField">
+<tt class="descclassname">shopkit.core.models.</tt><tt class="descname">PriceField</tt><a class="headerlink" href="#shopkit.core.models.PriceField" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>..todo::</dt>
+<dd>As this import makes the core depend on the currency extension, we should
+probably integrate this functionality into the core.</dd>
+</dl>
+<p>alias of <tt class="xref py py-class docutils literal"><span class="pre">Bogus</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.UserCustomerBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">UserCustomerBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.UserCustomerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractCustomerBase" title="shopkit.core.basemodels.AbstractCustomerBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractCustomerBase</span></tt></a>, <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/auth/#django.contrib.auth.models.User" title="(in Django v1.3)"><tt class="xref py py-class docutils literal"><span class="pre">django.contrib.auth.models.User</span></tt></a></p>
+<p>Abstract base class for customers which can also be Django users.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.ProductBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">ProductBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.ProductBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a></p>
+<p>Abstract base class for products in the webshop.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.ProductBase.in_shop">
+<tt class="descname">in_shop</tt><a class="headerlink" href="#shopkit.core.models.ProductBase.in_shop" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <cite>in_shop</cite> property should be a <a class="reference external" href="http://docs.djangoproject.com/en/dev/topics/db/managers/#django.db.models.Manager" title="(in Django v1.3)"><tt class="xref py py-class docutils literal"><span class="pre">Manager</span></tt></a>
+containing all the <cite>Product</cite> objects which should be enabled in the
+shop&#8217;s frontend.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.CartItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">CartItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a>, <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.QuantizedItemBase" title="shopkit.core.basemodels.QuantizedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.QuantizedItemBase</span></tt></a></p>
+<p>Abstract base class for shopping cart items.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.CartItemBase.cart">
+<tt class="descname">cart</tt><a class="headerlink" href="#shopkit.core.models.CartItemBase.cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shopping cart this item belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.CartItemBase.product">
+<tt class="descname">product</tt><a class="headerlink" href="#shopkit.core.models.CartItemBase.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product associated with this shopping cart item.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps <cite>get_total_price()</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartItemBase.get_total_price">
+<tt class="descname">get_total_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase.get_total_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the tatal price for the items in the cart.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartItemBase.get_piece_price">
+<tt class="descname">get_piece_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase.get_piece_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the price per piece for a given quantity of items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartItemBase.get_order_line">
+<tt class="descname">get_order_line</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase.get_order_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Natural (unicode) representation of this cart item in an order
+overview.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.CartBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">CartBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a></p>
+<p>Abstract base class for shopping carts.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.CartBase.customer">
+<tt class="descname">customer</tt><a class="headerlink" href="#shopkit.core.models.CartBase.customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer who owns this cart, if any.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.core.models.CartBase.from_request">
+<em class="property">classmethod </em><tt class="descname">from_request</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.from_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an existing <cite>Cart</cite> object from the session or return a blank one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body"><cite>Cart</cite> object corresponding with this request</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.to_request">
+<tt class="descname">to_request</tt><big>(</big><em>request</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.to_request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store a reference to the current <cite>Cart</cite> object in the session.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_items">
+<tt class="descname">get_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets items from the cart with a quantity &gt; 0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_item">
+<tt class="descname">get_item</tt><big>(</big><em>product</em>, <em>create=True</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Either instantiates and returns a CartItem for the
+Cart-Product combination or fetches it from the
+database. The creation is lazy: the resulting CartItem
+is not automatically saved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>create</strong> &#8211; Whether or not to create a new object if no object was found.</li>
+<li><strong>kwargs</strong> &#8211; If <cite>kwargs</cite> are specified, these signify filters or instantiation
+parameters for getting or creating the item.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.add_item">
+<tt class="descname">add_item</tt><big>(</big><em>product</em>, <em>quantity=1</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.add_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the specified product in the specified quantity
+to the current shopping Cart. This effectively creates
+a CartItem for the Product-Cart combination or updates
+it when a CartItem already exists.</p>
+<p>When <cite>kwargs</cite> are specified, these are passed along to
+<cite>get_item</cite> and signify properties of the <cite>CartItem</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">added <cite>CartItem</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.remove_item">
+<tt class="descname">remove_item</tt><big>(</big><em>product</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.remove_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove item from cart.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Returns:</th><td class="field-body">True if the item was deleted succesfully, False if the item
+could not be found.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_total_items">
+<tt class="descname">get_total_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_total_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total quantity of products in the shopping cart.</p>
+<div class="admonition-todo admonition " id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use aggregation here.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps the <cite>get_total_price</cite> function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_total_price">
+<tt class="descname">get_total_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_total_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total price for all items in the cart.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.CartBase.get_order_line">
+<tt class="descname">get_order_line</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_order_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a string representation of this <cite>OrderItem</cite> for use in list views.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.OrderItemBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">OrderItemBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a>, <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.QuantizedItemBase" title="shopkit.core.basemodels.QuantizedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.QuantizedItemBase</span></tt></a></p>
+<p>Abstract base class for order items. An <cite>OrderItem</cite> should, ideally, copy all
+specific properties from the shopping cart as an order should not change
+at all when the objects they relate to change.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderItemBase.order">
+<tt class="descname">order</tt><a class="headerlink" href="#shopkit.core.models.OrderItemBase.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order this item belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderItemBase.product">
+<tt class="descname">product</tt><a class="headerlink" href="#shopkit.core.models.OrderItemBase.product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Product associated with this order item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderItemBase.piece_price">
+<tt class="descname">piece_price</tt><a class="headerlink" href="#shopkit.core.models.OrderItemBase.piece_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Price per piece for the current item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderItemBase.order_line">
+<tt class="descname">order_line</tt><a class="headerlink" href="#shopkit.core.models.OrderItemBase.order_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of this OrderItem as shown on the bill.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.core.models.OrderItemBase.from_cartitem">
+<em class="property">classmethod </em><tt class="descname">from_cartitem</tt><big>(</big><em>cartitem</em>, <em>order</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.from_cartitem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and populate an order item from a shopping cart item.
+The result is <em>not</em> automatically saved.</p>
+<p>When the <cite>CartItem</cite> model has extra properties, such as variations,
+these should be copied over to the <cite>OrderItem</cite> in overrides of this
+function as follows:</p>
+<div class="highlight-python"><pre>class OrderItem(...):
+    @classmethod
+    def from_cartitem(cls, cartitem, order):
+        orderitem = super(OrderItem, cls).from_cartitem(cartitem, order)
+
+        orderitem.&lt;someproperty&gt; = cartitem.&lt;someproperty&gt;
+
+        return orderitem</pre>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderItemBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps <cite>get_total_price()</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderItemBase.get_total_price">
+<tt class="descname">get_total_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.get_total_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the tatal price for the items in the cart.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderItemBase.get_piece_price">
+<tt class="descname">get_piece_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.get_piece_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the price per piece for a given quantity of items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderItemBase.confirm">
+<tt class="descname">confirm</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register confirmation of the current <cite>OrderItem</cite>. This can be
+overridden in subclasses to perform functionality such as stock
+keeping or discount usage administration. By default it merely
+emits a debug message.</p>
+<p>When overriding, be sure to call the superclass.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.OrderStateChangeBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">OrderStateChangeBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderStateChangeBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for logging order state changes.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderStateChangeBase.date">
+<tt class="descname">date</tt><a class="headerlink" href="#shopkit.core.models.OrderStateChangeBase.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date at which the state change ocurred.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderStateChangeBase.state">
+<tt class="descname">state</tt><a class="headerlink" href="#shopkit.core.models.OrderStateChangeBase.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of the order, represented by a PositveSmallInteger field.
+Available choices can be configured in SHOPKIT_ORDER_STATES.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.core.models.OrderStateChangeBase.get_latest">
+<em class="property">classmethod </em><tt class="descname">get_latest</tt><big>(</big><em>order</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderStateChangeBase.get_latest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the latest state change for a particular order, or <cite>None</cite> if no
+<cite>StateChange</cite> is available.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.OrderBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">OrderBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase" title="shopkit.core.basemodels.AbstractPricedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.AbstractPricedItemBase</span></tt></a>, <a class="reference internal" href="basemodels.html#shopkit.core.basemodels.DatedItemBase" title="shopkit.core.basemodels.DatedItemBase"><tt class="xref py py-class docutils literal"><span class="pre">shopkit.core.basemodels.DatedItemBase</span></tt></a></p>
+<p>Abstract base class for orders.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderBase.cart">
+<tt class="descname">cart</tt><a class="headerlink" href="#shopkit.core.models.OrderBase.cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shopping cart this order was created from.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderBase.customer">
+<tt class="descname">customer</tt><a class="headerlink" href="#shopkit.core.models.OrderBase.customer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Customer whom this order belongs to.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderBase.state">
+<tt class="descname">state</tt><a class="headerlink" href="#shopkit.core.models.OrderBase.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State of the order, represented by a PositveSmallInteger field.
+Available choices can be configured in SHOPKIT_ORDER_STATES.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="shopkit.core.models.OrderBase.confirmed">
+<tt class="descname">confirmed</tt><a class="headerlink" href="#shopkit.core.models.OrderBase.confirmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not the order has been confirmed by calling the
+<cite>confirm()</cite> method. This field exists in order to prevent potentially
+disastrous double registration of confirmation, where an <cite>Order</cite>&#8216;s stock
+would be lowered twice etcetera.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.get_items">
+<tt class="descname">get_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all order items (with a quantity greater than 0).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.get_total_items">
+<tt class="descname">get_total_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.get_total_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total quantity of products in the shopping cart.</p>
+<div class="admonition-todo admonition " id="index-1">
+<p class="first admonition-title">Todo</p>
+<p class="last">Use aggregation here.</p>
+</div>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="shopkit.core.models.OrderBase.from_cart">
+<em class="property">classmethod </em><tt class="descname">from_cart</tt><big>(</big><em>cart</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.from_cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate an order based on the basis of a
+shopping cart, copying all the items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.save">
+<tt class="descname">save</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure we log a state change where applicable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.prepare_confirm">
+<tt class="descname">prepare_confirm</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.prepare_confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run necessary checks in order to confirm whether an order can be
+safely confirmed. By default this method only checks whether or not
+the order has already been confirmed, but could be potentially
+overridden by methods checking the item&#8217;s stock etcetera.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Raises :</th><td class="field-body">AlreadyConfirmedException</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.confirm">
+<tt class="descname">confirm</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.confirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method which performs actions to be taken upon order confirmation.</p>
+<p>By default, this method writes a log message and calls the
+<cite>register_confirmation</cite> method on all order items. It also deletes
+to shopping cart this order was created from.</p>
+<p>Subclasses can use this to perform actions such as updating the
+stock or registering the use of a discount. When overriding, make sure
+this method calls its supermethods.</p>
+<p>When subclassing this method, please make sure you implement proper
+safety checks in the overrides of the <cite>prepare_confirm()</cite> method as
+this method should <em>not</em> raise errors under normal circumstances as
+this could lead to potential data/state inconsistencies.</p>
+<p>In general, it makes sense to connect this method to a change in order
+state such that it is called automatically. For example:</p>
+<dl class="docutils">
+<dt>..todo::</dt>
+<dd>Write a code example here.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.get_price">
+<tt class="descname">get_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.get_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps the <cite>get_total_price</cite> function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="shopkit.core.models.OrderBase.get_total_price">
+<tt class="descname">get_total_price</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.get_total_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the total price for all items in the order.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.AddressBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">AddressBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.AddressBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for address models.</p>
+<p>This base class should be used when defining addresses for customers.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.AddressBase.addressee">
+<tt class="descname">addressee</tt><a class="headerlink" href="#shopkit.core.models.AddressBase.addressee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addressee for the current address.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.CustomerAddressBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">CustomerAddressBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CustomerAddressBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Base class for addresses with a relation to a customer, for which the
+<cite>addressee</cite> field is automatically set when saving.</p>
+<dl class="method">
+<dt id="shopkit.core.models.CustomerAddressBase.save">
+<tt class="descname">save</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.CustomerAddressBase.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default the addressee to the full name of the user if none has
+been specified explicitly.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="shopkit.core.models.PaymentBase">
+<em class="property">class </em><tt class="descclassname">shopkit.core.models.</tt><tt class="descname">PaymentBase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.models.PaymentBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">django.db.models.base.Model</span></tt></p>
+<p>Abstract base class for payments.</p>
+<dl class="attribute">
+<dt id="shopkit.core.models.PaymentBase.order">
+<tt class="descname">order</tt><a class="headerlink" href="#shopkit.core.models.PaymentBase.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order this payment belongs to.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basemodels.html"
+                        title="previous chapter">Base models</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="managers.html"
+                        title="next chapter">Managers</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/components/core/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="managers.html" title="Managers"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basemodels.html" title="Base models"
+             >previous</a> |</li>
+        <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Mathijs de Bruin.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
