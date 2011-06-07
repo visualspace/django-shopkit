@@ -71,6 +71,7 @@
     <dt><a href="components/core/models.html#shopkit.core.models.AddressBase.addressee">addressee (shopkit.core.models.AddressBase attribute)</a></dt>
     <dt><a href="components/price/advanced/tests.html#shopkit.price.advanced.tests.AdvancedPriceTestMixin">AdvancedPriceTestMixin (class in shopkit.price.advanced.tests)</a></dt>
     <dt><a href="components/core/exceptions.html#shopkit.core.exceptions.AlreadyConfirmedException">AlreadyConfirmedException</a></dt>
+    <dt><a href="components/core/utils/listeners.html#shopkit.core.utils.listeners.Listener.as_listener">as_listener() (shopkit.core.utils.listeners.Listener class method)</a></dt>
     <dt><a href="components/shipping/advanced/models.html#shopkit.shipping.advanced.models.order_models.AutomaticShippingMixin">AutomaticShippingMixin (class in shopkit.shipping.advanced.models.order_models)</a></dt>
 </dl></td>
 </tr></table>
@@ -454,9 +455,10 @@
   <td style="width: 33%" valign="top"><dl>
     <dt><a href="components/core/utils/admin.html#shopkit.core.utils.admin.LimitedAdminInlineMixin.limit_inline_choices">limit_inline_choices() (shopkit.core.utils.admin.LimitedAdminInlineMixin static method)</a></dt>
     <dt><a href="components/core/utils/admin.html#shopkit.core.utils.admin.LimitedAdminInlineMixin">LimitedAdminInlineMixin (class in shopkit.core.utils.admin)</a></dt>
+    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin">LimitedUseDiscountMixin (class in shopkit.discounts.advanced.models.discount_models)</a></dt>
 </dl></td>
   <td style="width: 33%" valign="top"><dl>
-    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.LimitedUseDiscountMixin">LimitedUseDiscountMixin (class in shopkit.discounts.advanced.models.discount_models)</a></dt>
+    <dt><a href="components/core/utils/listeners.html#shopkit.core.utils.listeners.Listener">Listener (class in shopkit.core.utils.listeners)</a></dt>
     <dt><a href="components/core/utils/admin.html#shopkit.core.utils.admin.logger">logger (in module shopkit.core.utils.admin)</a></dt>
 </dl></td>
 </tr></table>
@@ -540,6 +542,7 @@
   </dl></dd>
     <dt><a href="components/price/models.html#shopkit.price.models.PricedItemBase.price">price (shopkit.price.models.PricedItemBase attribute)</a></dt>
     <dt><a href="components/price/advanced/models.html#shopkit.price.advanced.models.PriceBase">PriceBase (class in shopkit.price.advanced.models)</a></dt>
+    <dt><a href="components/core/admin.html#shopkit.core.admin.PricedItemAdminMixin">PricedItemAdminMixin (class in shopkit.core.admin)</a></dt>
     <dt><a href="components/price/models.html#shopkit.price.models.PricedItemBase">PricedItemBase (class in shopkit.price.models)</a></dt>
     <dt><a href="components/currency/simple/fields.html#shopkit.currency.simple.fields.PriceField">PriceField (class in shopkit.currency.simple.fields)</a></dt>
     <dd><dl>
@@ -547,6 +550,8 @@
   </dl></dd>
     <dt><a href="components/price/advanced/admin.html#shopkit.price.advanced.admin.PriceInline">PriceInline (class in shopkit.price.advanced.admin)</a></dt>
     <dt><a href="components/price/advanced/forms.html#shopkit.price.advanced.forms.PriceInlineFormSet">PriceInlineFormSet (class in shopkit.price.advanced.forms)</a></dt>
+</dl></td>
+  <td style="width: 33%" valign="top"><dl>
     <dt><a href="components/core/models.html#shopkit.core.models.CartItemBase.product">product (shopkit.core.models.CartItemBase attribute)</a></dt>
     <dd><dl>
       <dt><a href="components/core/models.html#shopkit.core.models.OrderItemBase.product">(shopkit.core.models.OrderItemBase attribute)</a></dt>
@@ -554,8 +559,6 @@
       <dt><a href="components/price/advanced/models.html#shopkit.price.advanced.models.ProductPriceMixin.product">(shopkit.price.advanced.models.ProductPriceMixin attribute)</a></dt>
       <dt><a href="components/variations/models.html#shopkit.variations.models.ProductVariationBase.product">(shopkit.variations.models.ProductVariationBase attribute)</a></dt>
   </dl></dd>
-</dl></td>
-  <td style="width: 33%" valign="top"><dl>
     <dt><a href="components/core/forms.html#shopkit.core.forms.product_choices">product_choices (in module shopkit.core.forms)</a></dt>
     <dt><a href="components/core/settings.html#shopkit.core.settings.PRODUCT_MODEL">PRODUCT_MODEL (in module shopkit.core.settings)</a></dt>
     <dt><a href="components/core/models.html#shopkit.core.models.ProductBase">ProductBase (class in shopkit.core.models)</a></dt>
@@ -649,6 +652,7 @@
     <dt><a href="components/configurable/simple/settings.html#module-shopkit.configurable.simple.settings">shopkit.configurable.simple.settings (module)</a></dt>
     <dt><a href="components/configurable/simple/views.html#module-shopkit.configurable.simple.views">shopkit.configurable.simple.views (module)</a></dt>
     <dt><a href="components/core/index.html#module-shopkit.core">shopkit.core (module)</a></dt>
+    <dt><a href="components/core/admin.html#module-shopkit.core.admin">shopkit.core.admin (module)</a></dt>
     <dt><a href="components/core/basemodels.html#module-shopkit.core.basemodels">shopkit.core.basemodels (module)</a></dt>
     <dt><a href="components/core/context_processors.html#module-shopkit.core.context_processors">shopkit.core.context_processors (module)</a></dt>
     <dt><a href="components/core/exceptions.html#module-shopkit.core.exceptions">shopkit.core.exceptions (module)</a></dt>
@@ -662,6 +666,7 @@
     <dt><a href="components/core/utils/index.html#module-shopkit.core.utils">shopkit.core.utils (module)</a></dt>
     <dt><a href="components/core/utils/admin.html#module-shopkit.core.utils.admin">shopkit.core.utils.admin (module)</a></dt>
     <dt><a href="components/core/utils/fields.html#module-shopkit.core.utils.fields">shopkit.core.utils.fields (module)</a></dt>
+    <dt><a href="components/core/utils/listeners.html#module-shopkit.core.utils.listeners">shopkit.core.utils.listeners (module)</a></dt>
     <dt><a href="components/core/views.html#module-shopkit.core.views">shopkit.core.views (module)</a></dt>
     <dt><a href="components/currency/index.html#module-shopkit.currency">shopkit.currency (module)</a></dt>
     <dt><a href="components/currency/advanced/index.html#module-shopkit.currency.advanced">shopkit.currency.advanced (module)</a></dt>
@@ -678,9 +683,9 @@
     <dt><a href="components/discounts/advanced/models.html#module-shopkit.discounts.advanced.models">shopkit.discounts.advanced.models (module)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#module-shopkit.discounts.advanced.models.discount_models">shopkit.discounts.advanced.models.discount_models (module)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#module-shopkit.discounts.advanced.models.order_models">shopkit.discounts.advanced.models.order_models (module)</a></dt>
-    <dt><a href="components/discounts/basemodels.html#module-shopkit.discounts.basemodels">shopkit.discounts.basemodels (module)</a></dt>
 </dl></td>
   <td style="width: 33%" valign="top"><dl>
+    <dt><a href="components/discounts/basemodels.html#module-shopkit.discounts.basemodels">shopkit.discounts.basemodels (module)</a></dt>
     <dt><a href="components/discounts/settings.html#module-shopkit.discounts.settings">shopkit.discounts.settings (module)</a></dt>
     <dt><a href="components/featured/index.html#module-shopkit.featured">shopkit.featured (module)</a></dt>
     <dt><a href="components/featured/models.html#module-shopkit.featured.models">shopkit.featured.models (module)</a></dt>
