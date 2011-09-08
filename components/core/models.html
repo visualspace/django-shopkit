@@ -132,6 +132,13 @@ shop&#8217;s frontend.</p>
 overview.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="shopkit.core.models.CartItemBase.get_parent">
+<tt class="descname">get_parent</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartItemBase.get_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the relevant Cart. Used to have a generic API for Carts 
+and Orders.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -231,7 +238,7 @@ could not be found.</td>
 <dt id="shopkit.core.models.CartBase.get_total_items">
 <tt class="descname">get_total_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.CartBase.get_total_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the total quantity of products in the shopping cart.</p>
-<div class="admonition-todo admonition " id="index-0">
+<div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
 <p class="last">Use aggregation here.</p>
 </div>
@@ -335,6 +342,13 @@ emits a debug message.</p>
 <p>When overriding, be sure to call the superclass.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="shopkit.core.models.OrderItemBase.get_parent">
+<tt class="descname">get_parent</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderItemBase.get_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the relevant Order. Used to have a generic API for Carts 
+and Orders.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -407,7 +421,7 @@ would be lowered twice etcetera.</p>
 <dt id="shopkit.core.models.OrderBase.get_total_items">
 <tt class="descname">get_total_items</tt><big>(</big><big>)</big><a class="headerlink" href="#shopkit.core.models.OrderBase.get_total_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the total quantity of products in the shopping cart.</p>
-<div class="admonition-todo admonition " id="index-1">
+<div class="admonition-todo admonition" id="index-1">
 <p class="first admonition-title">Todo</p>
 <p class="last">Use aggregation here.</p>
 </div>

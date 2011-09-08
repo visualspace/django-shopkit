@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Advanced &mdash; django-shopkit v0.1 documentation</title>
+    <title>Listeners &mdash; django-shopkit v0.1 documentation</title>
     <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <link rel="top" title="django-shopkit v0.1 documentation" href="../../../index.html" />
-    <link rel="up" title="Stock" href="../index.html" />
-    <link rel="next" title="Models" href="models.html" />
-    <link rel="prev" title="Models" href="../simple/models.html" /> 
+    <link rel="up" title="Utils" href="index.html" />
+    <link rel="next" title="Context processors" href="../context_processors.html" />
+    <link rel="prev" title="Admin" href="admin.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,14 +38,15 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="models.html" title="Models"
+          <a href="../context_processors.html" title="Context processors"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../simple/models.html" title="Models"
+          <a href="admin.html" title="Admin"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Components</a> &raquo;</li>
-          <li><a href="../index.html" accesskey="U">Stock</a> &raquo;</li> 
+          <li><a href="../index.html" >Core</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Utils</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -54,20 +55,31 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="advanced">
-<h1>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h1>
-<p><cite>shopkit.stock.advanced</cite></p>
-<span class="target" id="module-shopkit.stock.advanced"></span><div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Write documentation here.</p>
+  <div class="section" id="listeners">
+<h1>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.utils.listeners</cite></p>
+<span class="target" id="module-shopkit.core.utils.listeners"></span><dl class="class">
+<dt id="shopkit.core.utils.listeners.Listener">
+<em class="property">class </em><tt class="descclassname">shopkit.core.utils.listeners.</tt><tt class="descname">Listener</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.utils.listeners.Listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Class-based listeners, based on Django&#8217;s class-based generic views. Yay!</p>
+<p>Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MySillyListener</span><span class="p">(</span><span class="n">Listener</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dispatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c"># DO SOMETHING</span>
+        <span class="k">pass</span>
+
+<span class="n">funkysignal</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">MySillyListener</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">weak</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">Tests</a></li>
-</ul>
-</div>
+<dl class="classmethod">
+<dt id="shopkit.core.utils.listeners.Listener.as_listener">
+<em class="property">classmethod </em><tt class="descname">as_listener</tt><big>(</big><em>**initkwargs</em><big>)</big><a class="headerlink" href="#shopkit.core.utils.listeners.Listener.as_listener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Main entry point for a sender-listener process.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -77,14 +89,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../simple/models.html"
-                        title="previous chapter">Models</a></p>
+  <p class="topless"><a href="admin.html"
+                        title="previous chapter">Admin</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="models.html"
-                        title="next chapter">Models</a></p>
+  <p class="topless"><a href="../context_processors.html"
+                        title="next chapter">Context processors</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../../_sources/components/stock/advanced/index.txt"
+    <li><a href="../../../_sources/components/core/utils/listeners.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -114,14 +126,15 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="models.html" title="Models"
+          <a href="../context_processors.html" title="Context processors"
              >next</a> |</li>
         <li class="right" >
-          <a href="../simple/models.html" title="Models"
+          <a href="admin.html" title="Admin"
              >previous</a> |</li>
         <li><a href="../../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
           <li><a href="../../index.html" >Components</a> &raquo;</li>
-          <li><a href="../index.html" >Stock</a> &raquo;</li> 
+          <li><a href="../index.html" >Core</a> &raquo;</li>
+          <li><a href="index.html" >Utils</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

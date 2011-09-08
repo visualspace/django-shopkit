@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Stock &mdash; django-shopkit v0.1 documentation</title>
+    <title>Admin &mdash; django-shopkit v0.1 documentation</title>
     <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,9 +23,9 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="django-shopkit v0.1 documentation" href="../../index.html" />
-    <link rel="up" title="Components" href="../index.html" />
-    <link rel="next" title="Models" href="models.html" />
-    <link rel="prev" title="Models" href="../discounts/advanced/models.html" /> 
+    <link rel="up" title="Core" href="index.html" />
+    <link rel="next" title="Base models" href="basemodels.html" />
+    <link rel="prev" title="Core" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,13 +38,14 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="models.html" title="Models"
+          <a href="basemodels.html" title="Base models"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../discounts/advanced/models.html" title="Models"
+          <a href="index.html" title="Core"
              accesskey="P">previous</a> |</li>
         <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
-          <li><a href="../index.html" accesskey="U">Components</a> &raquo;</li> 
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Core</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,33 +54,16 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="stock">
-<h1>Stock<a class="headerlink" href="#stock" title="Permalink to this headline">¶</a></h1>
-<p><cite>shopkit.stock</cite></p>
-<span class="target" id="module-shopkit.stock"></span><p>Support for stock management for items in the shop.</p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Write more descriptive documentation here about the stock management
-API&#8217;s.</p>
-</div>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple/index.html">Simple</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="simple/settings.html">Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="simple/models.html">Models</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="advanced/index.html">Advanced</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="advanced/models.html">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced/settings.html">Settings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced/tests.html">Tests</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="admin">
+<h1>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h1>
+<p><cite>shopkit.core.admin</cite></p>
+<span class="target" id="module-shopkit.core.admin"></span><dl class="class">
+<dt id="shopkit.core.admin.PricedItemAdminMixin">
+<em class="property">class </em><tt class="descclassname">shopkit.core.admin.</tt><tt class="descname">PricedItemAdminMixin</tt><a class="headerlink" href="#shopkit.core.admin.PricedItemAdminMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Admin mixin for priced items.</p>
+</dd></dl>
+
 </div>
 
 
@@ -89,14 +73,14 @@ API&#8217;s.</p>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../discounts/advanced/models.html"
-                        title="previous chapter">Models</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Core</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="models.html"
-                        title="next chapter">Models</a></p>
+  <p class="topless"><a href="basemodels.html"
+                        title="next chapter">Base models</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../_sources/components/stock/index.txt"
+    <li><a href="../../_sources/components/core/admin.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -126,13 +110,14 @@ API&#8217;s.</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="models.html" title="Models"
+          <a href="basemodels.html" title="Base models"
              >next</a> |</li>
         <li class="right" >
-          <a href="../discounts/advanced/models.html" title="Models"
+          <a href="index.html" title="Core"
              >previous</a> |</li>
         <li><a href="../../index.html">django-shopkit v0.1 documentation</a> &raquo;</li>
-          <li><a href="../index.html" >Components</a> &raquo;</li> 
+          <li><a href="../index.html" >Components</a> &raquo;</li>
+          <li><a href="index.html" >Core</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

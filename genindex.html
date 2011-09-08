@@ -179,6 +179,7 @@
     <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedOrderItemBase.discount">discount (shopkit.discounts.basemodels.DiscountedOrderItemBase attribute)</a></dt>
     <dt><a href="components/discounts/settings.html#shopkit.discounts.settings.DISCOUNT_MODEL">DISCOUNT_MODEL (in module shopkit.discounts.settings)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.DiscountBase">DiscountBase (class in shopkit.discounts.advanced.models.discount_models)</a></dt>
+    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.DiscountCouponItemMixin">DiscountCouponItemMixin (class in shopkit.discounts.advanced.models.order_models)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.DiscountCouponMixin">DiscountCouponMixin (class in shopkit.discounts.advanced.models.order_models)</a></dt>
 </dl></td>
   <td style="width: 33%" valign="top"><dl>
@@ -261,12 +262,16 @@
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin.get_discount">(shopkit.discounts.advanced.models.discount_models.OrderDiscountAmountMixin method)</a></dt>
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin.get_discount">(shopkit.discounts.advanced.models.discount_models.OrderDiscountPercentageMixin method)</a></dt>
       <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_discount">(shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
-      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedOrderItemBase.get_discount">(shopkit.discounts.basemodels.DiscountedOrderItemBase method)</a></dt>
   </dl></dd>
     <dt><a href="components/core/utils/admin.html#shopkit.core.utils.admin.LimitedAdminInlineMixin.get_filters">get_filters() (shopkit.core.utils.admin.LimitedAdminInlineMixin method)</a></dt>
     <dt><a href="components/core/views.html#shopkit.core.views.CartAddBase.get_form_class">get_form_class() (shopkit.core.views.CartAddBase method)</a></dt>
     <dt><a href="components/core/utils/admin.html#shopkit.core.utils.admin.LimitedAdminInlineMixin.get_formset">get_formset() (shopkit.core.utils.admin.LimitedAdminInlineMixin method)</a></dt>
     <dt><a href="components/core/models.html#shopkit.core.models.CartBase.get_item">get_item() (shopkit.core.models.CartBase method)</a></dt>
+    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_item_discount">get_item_discount() (shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin method)</a></dt>
+    <dd><dl>
+      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedCartItemBase.get_item_discount">(shopkit.discounts.basemodels.DiscountedCartItemBase method)</a></dt>
+      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedOrderItemBase.get_item_discount">(shopkit.discounts.basemodels.DiscountedOrderItemBase method)</a></dt>
+  </dl></dd>
     <dt><a href="components/core/models.html#shopkit.core.models.CartBase.get_items">get_items() (shopkit.core.models.CartBase method)</a></dt>
     <dd><dl>
       <dt><a href="components/core/models.html#shopkit.core.models.OrderBase.get_items">(shopkit.core.models.OrderBase method)</a></dt>
@@ -294,13 +299,23 @@
     <dd><dl>
       <dt><a href="components/shipping/basemodels.html#shopkit.shipping.basemodels.ShippedOrderBase.get_order_shipping_costs">(shopkit.shipping.basemodels.ShippedOrderBase method)</a></dt>
   </dl></dd>
+    <dt><a href="components/core/models.html#shopkit.core.models.CartItemBase.get_parent">get_parent() (shopkit.core.models.CartItemBase method)</a></dt>
+    <dd><dl>
+      <dt><a href="components/core/models.html#shopkit.core.models.OrderItemBase.get_parent">(shopkit.core.models.OrderItemBase method)</a></dt>
+  </dl></dd>
+    <dt><a href="components/category/basemodels.html#shopkit.category.basemodels.NestedCategoryBase.get_parent_list">get_parent_list() (shopkit.category.basemodels.NestedCategoryBase method)</a></dt>
 </dl></td>
   <td style="width: 33%" valign="top"><dl>
-    <dt><a href="components/category/basemodels.html#shopkit.category.basemodels.NestedCategoryBase.get_parent_list">get_parent_list() (shopkit.category.basemodels.NestedCategoryBase method)</a></dt>
+    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_piece_discount">get_piece_discount() (shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin method)</a></dt>
+    <dd><dl>
+      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_piece_discount">(shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
+  </dl></dd>
     <dt><a href="components/core/models.html#shopkit.core.models.CartItemBase.get_piece_price">get_piece_price() (shopkit.core.models.CartItemBase method)</a></dt>
     <dd><dl>
       <dt><a href="components/core/models.html#shopkit.core.models.OrderItemBase.get_piece_price">(shopkit.core.models.OrderItemBase method)</a></dt>
   </dl></dd>
+    <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_piece_price_with_discount">get_piece_price_with_discount() (shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
+    <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_piece_price_without_discount">get_piece_price_without_discount() (shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
     <dt><a href="components/core/basemodels.html#shopkit.core.basemodels.AbstractPricedItemBase.get_price">get_price() (shopkit.core.basemodels.AbstractPricedItemBase method)</a></dt>
     <dd><dl>
       <dt><a href="components/core/models.html#shopkit.core.models.CartBase.get_price">(shopkit.core.models.CartBase method)</a></dt>
@@ -313,6 +328,7 @@
       <dt><a href="components/vat/simple/models.html#shopkit.vat.simple.models.VATItemBase.get_price">(shopkit.vat.simple.models.VATItemBase method)</a></dt>
   </dl></dd>
     <dt><a href="components/vat/simple/models.html#shopkit.vat.simple.models.VATItemBase.get_price_with_vat">get_price_with_vat() (shopkit.vat.simple.models.VATItemBase method)</a></dt>
+    <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_price_without_discount">get_price_without_discount() (shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
     <dt><a href="components/shipping/basemodels.html#shopkit.shipping.basemodels.ShippedItemBase.get_price_without_shipping">get_price_without_shipping() (shopkit.shipping.basemodels.ShippedItemBase method)</a></dt>
     <dt><a href="components/vat/simple/models.html#shopkit.vat.simple.models.VATItemBase.get_price_without_vat">get_price_without_vat() (shopkit.vat.simple.models.VATItemBase method)</a></dt>
     <dt><a href="components/core/forms.html#shopkit.core.forms.get_product_choices">get_product_choices() (in module shopkit.core.forms)</a></dt>
@@ -346,11 +362,12 @@
   </dl></dd>
     <dt><a href="components/core/listeners.html#shopkit.core.listeners.EmailingListener.get_subject_template_names">get_subject_template_names() (shopkit.core.listeners.EmailingListener method)</a></dt>
     <dt><a href="components/core/views.html#shopkit.core.views.CartAddBase.get_success_url">get_success_url() (shopkit.core.views.CartAddBase method)</a></dt>
-    <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_total_discount">get_total_discount() (shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin method)</a></dt>
+    <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedCartBase.get_total_discount">get_total_discount() (shopkit.discounts.basemodels.DiscountedCartBase method)</a></dt>
     <dd><dl>
-      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedCartBase.get_total_discount">(shopkit.discounts.basemodels.DiscountedCartBase method)</a></dt>
+      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedCartItemBase.get_total_discount">(shopkit.discounts.basemodels.DiscountedCartItemBase method)</a></dt>
       <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedItemBase.get_total_discount">(shopkit.discounts.basemodels.DiscountedItemBase method)</a></dt>
       <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedOrderBase.get_total_discount">(shopkit.discounts.basemodels.DiscountedOrderBase method)</a></dt>
+      <dt><a href="components/discounts/basemodels.html#shopkit.discounts.basemodels.DiscountedOrderItemBase.get_total_discount">(shopkit.discounts.basemodels.DiscountedOrderItemBase method)</a></dt>
   </dl></dd>
     <dt><a href="components/core/models.html#shopkit.core.models.CartBase.get_total_items">get_total_items() (shopkit.core.models.CartBase method)</a></dt>
     <dd><dl>
@@ -384,6 +401,7 @@
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin.get_valid_discounts">(shopkit.discounts.advanced.models.order_models.CalculatedDiscountMixin method)</a></dt>
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin.get_valid_discounts">(shopkit.discounts.advanced.models.order_models.CalculatedItemDiscountMixin method)</a></dt>
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin.get_valid_discounts">(shopkit.discounts.advanced.models.order_models.CalculatedOrderDiscountMixin method)</a></dt>
+      <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.DiscountCouponItemMixin.get_valid_discounts">(shopkit.discounts.advanced.models.order_models.DiscountCouponItemMixin method)</a></dt>
       <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.order_models.DiscountCouponMixin.get_valid_discounts">(shopkit.discounts.advanced.models.order_models.DiscountCouponMixin method)</a></dt>
   </dl></dd>
     <dt><a href="components/shipping/advanced/models.html#shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin.get_valid_methods">get_valid_methods() (shopkit.shipping.advanced.models.shipping_models.ItemShippingMethodMixin class method)</a></dt>
@@ -466,8 +484,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-    <dt><a href="components/category/tests.html#shopkit.category.tests.CategoryTestMixinBase.make_test_category">make_test_category() (shopkit.category.tests.CategoryTestMixinBase method)</a></dt>
-    <dt><a href="components/core/tests.html#shopkit.core.tests.CoreTestMixin.make_test_product">make_test_product() (shopkit.core.tests.CoreTestMixin method)</a></dt>
+    <dt><a href="components/category/tests.html#shopkit.category.tests.CategoryTestMixinBase.make_category">make_category() (shopkit.category.tests.CategoryTestMixinBase method)</a></dt>
+    <dt><a href="components/core/tests.html#shopkit.core.tests.CoreTestMixin.make_product">make_product() (shopkit.core.tests.CoreTestMixin method)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.ManyCategoryDiscountMixin">ManyCategoryDiscountMixin (class in shopkit.discounts.advanced.models.discount_models)</a></dt>
     <dt><a href="components/discounts/advanced/models.html#shopkit.discounts.advanced.models.discount_models.ManyProductDiscountMixin">ManyProductDiscountMixin (class in shopkit.discounts.advanced.models.discount_models)</a></dt>
     <dt><a href="components/core/settings.html#shopkit.core.settings.MAX_NAME_LENGTH">MAX_NAME_LENGTH (in module shopkit.core.settings)</a></dt>
